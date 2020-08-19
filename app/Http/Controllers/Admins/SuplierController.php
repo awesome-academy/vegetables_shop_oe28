@@ -27,7 +27,7 @@ class SuplierController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.supliers.create');
     }
 
     /**
@@ -38,7 +38,9 @@ class SuplierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Suplier::create($request->all());
+
+        return redirect()->route('supliers.index')->with('success', trans('messages.add_success'));
     }
 
     /**
