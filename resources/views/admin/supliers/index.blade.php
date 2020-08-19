@@ -33,7 +33,7 @@
                                 <td>{{ $suplier->phone }}</td>
                                 <td>{{ $suplier->email }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-success">
+                                    <a href="{{ route('supliers.edit', $suplier->id) }}" class="btn btn-success">
                                         <i class="fa fa-edit">{{ trans('messages.edit') }}</i>
                                     </a>
                                 </td>

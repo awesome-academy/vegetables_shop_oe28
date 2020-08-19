@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admins;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSuplierRequest;
-use App\Models\Suplier;
+use App\Http\Requests\UpdateSuplierRequest;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 
 class SuplierController extends Controller
@@ -16,7 +17,7 @@ class SuplierController extends Controller
      */
     public function index()
     {
-        $supliers = Suplier::all();
+        $supliers = Supplier::all();
 
         return view('admin.supliers.index', compact('supliers'));
     }
@@ -39,7 +40,7 @@ class SuplierController extends Controller
      */
     public function store(StoreSuplierRequest $request)
     {
-        Suplier::create($request->all());
+        Supplier::create($request->all());
 
         return redirect()->route('supliers.index')->with('success', trans('messages.add_success'));
     }
@@ -63,7 +64,9 @@ class SuplierController extends Controller
      */
     public function edit($id)
     {
-        //
+        $supliers = Supplier::findOrFail($id);
+
+        return view('admin.supliers.edit', compact('supliers'));;
     }
 
     /**
@@ -73,9 +76,12 @@ class SuplierController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateSuplierRequest $request, $id)
     {
-        //
+        $suplier = Supplier::findOrFail($id);
+        $suplier->update($request->all());
+
+        return redirect()->route('supliers.index')->with('success', trans('messages.update_success'));
     }
 
     /**
@@ -86,7 +92,7 @@ class SuplierController extends Controller
      */
     public function destroy($id)
     {
-        $suplier = Suplier::findOrFail($id);
+        $suplier = Supplier::findOrFail($id);
         $suplier->delete();
 
         return redirect()->route('supliers.index')->with('success', trans('messages.delete_success'));

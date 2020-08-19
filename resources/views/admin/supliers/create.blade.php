@@ -5,7 +5,7 @@
         <h2>{{ trans('messages.add_suplier') }}</h2>
         @include('admin.layouts.common.errors')
         <form action="{{ route('supliers.store') }}" method="POST" class="form-horizontal">
-            {{ csrf_field() }}
+            @csrf
             <div class="form-group">
                 <label>{{ trans('messages.name') }}:</label>
                 <input type="text" class="form-control" name="name">
@@ -22,7 +22,7 @@
                 <label>{{ trans('messages.email') }}:</label>
                 <input type="email" class="form-control" name="email">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">{{ trans('templates.submit') }}</button>
         </form>
     </div>
 @endsection
