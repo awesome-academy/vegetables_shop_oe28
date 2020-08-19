@@ -16,14 +16,14 @@
                             <i class="fa fa-plus">{{ trans('templates.add_new') }}</i>
                         </a>
                         <thead>
-                        <tr>
-                            <th>{{ trans('messages.name') }}</th>
-                            <th>{{ trans('messages.address') }}</th>
-                            <th>{{ trans('messages.phone') }}</th>
-                            <th>{{ trans('messages.email') }}</th>
-                            <th>{{ trans('messages.edit') }}</th>
-                            <th>{{ trans('messages.delete') }}</th>
-                        </tr>
+                            <tr>
+                                <th>{{ trans('messages.name') }}</th>
+                                <th>{{ trans('messages.address') }}</th>
+                                <th>{{ trans('messages.phone') }}</th>
+                                <th>{{ trans('messages.email') }}</th>
+                                <th>{{ trans('messages.edit') }}</th>
+                                <th>{{ trans('messages.delete') }}</th>
+                            </tr>
                         </thead>
                         <tbody>
                         @foreach ($supliers as $suplier)
