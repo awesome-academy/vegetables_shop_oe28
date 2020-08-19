@@ -11,4 +11,10 @@ return [
     'name_role' => 'Tên quyền',
     'role_required' => 'Tên quyền không được bỏ trống!',
     'update_success' => 'Cập nhật thành công!',
+    'categories' => 'Danh mục',
+    'list_category' => 'Danh sách Danh mục',
+    'name' => 'Tên',
+    'parent_id' => 'Danh mục cha',
+    'level' => 'Cấp bậc',
+    'id' => 'STT',
 ];
