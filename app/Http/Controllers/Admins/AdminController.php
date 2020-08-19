@@ -14,4 +14,11 @@ class AdminController extends Controller
     {
         return view('admin.dashboard');
     }
+
+    public function switchLanguage($locale)
+    {
+        Session::put('locale', $locale);
+
+        return redirect()->back();
+    }
 }
