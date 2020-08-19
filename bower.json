@@ -1,0 +1,20 @@
+{
+  "name": "vegetables_shop_oe28",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Hoai <hoainxptit@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/HoaiPEC/vegetables_shop_oe28",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bower-package": "https://github.com/HoaiPEC/bower-package.git"
+  }
+}
