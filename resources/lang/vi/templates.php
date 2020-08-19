@@ -13,8 +13,10 @@ return [
     'update_success' => 'Cập nhật thành công!',
     'categories' => 'Danh mục',
     'list_category' => 'Danh sách Danh mục',
+    'add_category' => 'Thêm mới danh mục',
     'name' => 'Tên',
-    'parent_id' => 'Danh mục cha',
     'level' => 'Cấp bậc',
     'id' => 'STT',
+    'submit' => 'Thêm',
+    'edit_category' => 'Chỉnh sửa danh mục',
 ];
