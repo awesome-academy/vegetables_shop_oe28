@@ -24,7 +24,7 @@ class StoreSuplierRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255',
+            'name' => 'required',
             'email' => 'required|unique:supliers',
             'phone' => 'required|unique:supliers',
             'address' => 'required',
@@ -35,7 +35,6 @@ class StoreSuplierRequest extends FormRequest
     {
         return [
             'name.required' => trans('messages.name_required'),
-            'name.max' => trans('messages.name_max'),
             'email.required' => trans('messages.email_required'),
             'email.unique' => trans('messages.email_unique'),
             'phone.required' => trans('messages.phone_required'),

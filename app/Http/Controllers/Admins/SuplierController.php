@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admins;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreSuplierRequest;
 use App\Models\Suplier;
 use Illuminate\Http\Request;
 
@@ -36,7 +37,7 @@ class SuplierController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreSuplierRequest $request)
     {
         Suplier::create($request->all());
 
@@ -85,6 +86,9 @@ class SuplierController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $suplier = Suplier::findOrFail($id);
+        $suplier->delete();
+
+        return redirect()->route('supliers.index')->with('success', trans('messages.delete_success'));
     }
 }

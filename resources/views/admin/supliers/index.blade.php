@@ -13,7 +13,7 @@
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <a class="btn btn-primary btnAdd" href="{{ route('supliers.create') }}">
-                            <i class="fa fa-plus">{{ trans('messages.add_new') }}</i>
+                            <i class="fa fa-plus">{{ trans('templates.add_new') }}</i>
                         </a>
                         <thead>
                         <tr>
