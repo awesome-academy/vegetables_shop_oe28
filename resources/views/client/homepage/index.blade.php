@@ -4,17 +4,14 @@
 
     <section id="home-section" class="hero">
         <div class="home-slider owl-carousel">
-            <div class="slider-item">
+            <div class="slider-item slider-img-1">
                 <div class="overlay"></div>
-                <div class="container">
-                    <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-                        <div class="col-md-12 ftco-animate text-center">
-                            <h1 class="mb-2">{{ trans('clients.server_fresh') }}</h1>
-                            <h2 class="subheading mb-4">{{ trans('clients.delivery') }}</h2>
-                            <p><a href="#" class="btn btn-primary">{{ trans('clients.view') }}</a></p>
-                        </div>
-                    </div>
-                </div>
+            </div>
+            <div class="slider-item slider-img-2">
+                <div class="overlay"></div>
+            </div>
+            <div class="slider-item slider-img-3">
+                <div class="overlay"></div>
             </div>
         </div>
     </section>
@@ -25,10 +22,44 @@
                 <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
                     <div class="media block-6 services mb-md-0 mb-4">
                         <div class="icon bg-color-1 active d-flex justify-content-center align-items-center mb-2">
-                            <span class="flaticon-shipped"></span>
+                            <img src="{{ asset(config('path-img.poly-1')) }}" alt="">
                         </div>
                         <div class="media-body">
-                            <h3 class="heading">{{ trans('clients.free') }}</h3>
+                            <h3 class="heading">{{ trans('clients.frship') }}</h3>
+                            <span>{{ trans('clients.free_ship') }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services mb-md-0 mb-4">
+                        <div class="icon bg-color-2 d-flex justify-content-center align-items-center mb-2">
+                            <img src="{{ asset(config('path-img.poly-2')) }}" alt="">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading">{{ trans('clients.frship') }}</h3>
+                            <span>{{ trans('clients.free_ship') }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services mb-md-0 mb-4">
+                        <div class="icon bg-color-3 d-flex justify-content-center align-items-center mb-2">
+                            <img src="{{ asset(config('path-img.poly-3')) }}" alt="">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading">{{ trans('clients.frship') }}</h3>
+                            <span>{{ trans('clients.free_ship') }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services mb-md-0 mb-4">
+                        <div class="icon bg-color-4 d-flex justify-content-center align-items-center mb-2">
+                            <img src="{{ asset(config('path-img.poly-4')) }}" alt="">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="heading">{{ trans('clients.frship') }}</h3>
+                            <span>{{ trans('clients.free_ship') }}</span>
                         </div>
                     </div>
                 </div>

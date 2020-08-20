@@ -18,6 +18,7 @@
     "bower-package": "https://github.com/HoaiPEC/bower-package.git",
     "jquery-migrate": "https://github.com/appleboy/jquery-migrate.git#^3.0.0",
     "popper.js": "https://github.com/FezVrasta/popper.js.git#^2.4.4",
-    "waypoints": "https://github.com/imakewebthings/waypoints.git#^4.0.1"
+    "waypoints": "https://github.com/imakewebthings/waypoints.git#^4.0.1",
+    "Font-Awesome": "https://github.com/FortAwesome/Font-Awesome.git#^5.14.0"
   }
 }
