@@ -46,12 +46,11 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
             aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
-            <span>{{ trans('messages.pages') }}</span>
+            <span>{{ trans('templates.manage_advance') }}</span>
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">{{ trans('messages.login_messages') }}:</h6>
-                <a class="collapse-item" href="login.html">{{ trans('messages.login') }}</a>
+                <a class="collapse-item" href="{{ route('roles.index') }}">{{ trans('templates.roles') }}</a>
                 <a class="collapse-item" href="register.html">{{ trans('messages.register') }}</a>
                 <a class="collapse-item" href="forgot-password.html">{{ trans('messages.forgot_password') }}</a>
                 <div class="collapse-divider"></div>

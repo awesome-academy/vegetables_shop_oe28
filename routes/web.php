@@ -24,4 +24,5 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('dashboard', 'Admins\AdminController@index')->name('dashboard');
     Route::resource('products', 'Admins\ProductController');
     Route::resource('supliers', 'Admins\SuplierController'  );
+    Route::resource('roles', 'Admins\RoleController'  );
 });
