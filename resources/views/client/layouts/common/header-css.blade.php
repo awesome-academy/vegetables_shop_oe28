@@ -1,0 +1,15 @@
+<link href="{{ asset('bower_components/bower-package/googleapis.css') }}" rel="stylesheet">
+<link href="{{ asset('bower_components/bower-package/googleapiss.css') }}" rel="stylesheet">
+<link href="{{ asset('bower_components/bower-package/googleapisss.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('bower_components/open-iconic/css/open-iconic-bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ asset('bower_components/bower-package/css/animate.css') }}">
+<link rel="stylesheet" href="{{ asset('bower_components/bower-package/css/owl.carousel.min.css') }}">
+<link rel="stylesheet" href="{{ asset('bower_components/bower-package/css/owl.theme.default.min.css') }}">
+<link rel="stylesheet" href="{{ asset('bower_components/bower-package/css/magnific-popup.css') }}">
+<link rel="stylesheet" href="{{ asset('bower_components/bower-package/css/aos.css') }}">
+<link rel="stylesheet" href="{{ asset('bower_components/bower-package/css/ionicons.min.css') }}">
+<link rel="stylesheet" href="{{ asset('bower_components/bower-package/css/bootstrap-datepicker.css') }}">
+<link rel="stylesheet" href="{{ asset('bower_components/bower-package/css/jquery.timepicker.css') }}">
+<link rel="stylesheet" href="{{ asset('bower_components/bower-package/css/flaticon.css') }}">
+<link rel="stylesheet" href="{{ asset('bower_components/bower-package/css/icomoon.css') }}">
+<link rel="stylesheet" href="{{ asset('bower_components/bower-package/css/style.css') }}">
