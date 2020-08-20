@@ -25,3 +25,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('products', 'Admins\ProductController');
     Route::resource('supliers', 'Admins\SuplierController'  );
 });
+
+// Client
+
+Route::get('/', 'Clients\HomeController@index');
