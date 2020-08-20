@@ -41,4 +41,5 @@ return [
     'revenue_sources' => 'Revenue sources',
     'price' => 'Price',
     'list_supliers' => 'Danh sách nhà cung cấp',
+    'update_success' => 'Cập nhật thành công!',
 ];
