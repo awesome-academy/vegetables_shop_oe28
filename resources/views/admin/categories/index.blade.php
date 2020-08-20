@@ -19,8 +19,6 @@
                         <tr>
                             <th>{{ trans('templates.id') }}</th>
                             <th>{{ trans('templates.name') }}</th>
-                            <th>{{ trans('templates.parent_id') }}</th>
-                            <th>{{ trans('templates.level') }}</th>
                             <th>{{ trans('messages.edit') }}</th>
                             <th>{{ trans('messages.delete') }}</th>
                         </tr>
@@ -30,14 +28,6 @@
                             <tr>
                                 <td>{{ $key += 1 }}</td>
                                 <td>{{ $category->name }}</td>
-                                <td>
-                                    @if ($category->categoryParent)
-                                        {{ $category->categoryParent->name }}
-                                    @else
-                                        {{ $category->name }}
-                                    @endif
-                                </td>
-                                <td>{{ $category->level }}</td>
                                 <td>
                                     <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-success">
                                         <i class="fa fa-edit">{{ trans('messages.edit') }}</i>
