@@ -7,3 +7,16 @@
 .btnAdd i {
     color: #fff3cd;
 }
+.img-lang {
+    width: 20px;
+    height: 20px;
+}
+.slider-img-1 {
+    background-image: url('../img/slide-homepage/bg_1.jpg');
+}
+.slider-img-2 {
+    background-image: url('../img/slide-homepage/bg_2.jpg');
+}
+.slider-img-3 {
+    background-image: url('../img/slide-homepage/bg_3.jpg');
+}

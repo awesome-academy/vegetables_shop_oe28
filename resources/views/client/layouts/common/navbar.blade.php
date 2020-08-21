@@ -11,20 +11,47 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        {{ trans('clients.shop') }}
+                        {{ trans('clients.product') }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdown04">
-                        <a class="dropdown-item" href="shop.html">{{ trans('clients.shop') }}</a>
+                        @foreach ($categories as $category)
+                            <a class="dropdown-item" href="#">{{ $category->name }}</a>
+                        @endforeach
                     </div>
                 </li>
-                <li class="nav-item"><a href="about.html" class="nav-link">{{ trans('clients.about') }}</a></li>
-                <li class="nav-item"><a href="blog.html" class="nav-link">{{ trans('clients.blog') }}</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">{{ trans('clients.contact') }}</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">{{ trans('clients.news') }}</a></li>
+                <li class="nav-item"><a href="blog.html" class="nav-link">{{ trans('clients.introduce') }}</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">{{ trans('clients.delivery_regulations') }}</a></li>
                 <li class="nav-item cta cta-colored">
                     <a href="cart.html" class="nav-link">
-                        <span class="icon-shopping_cart"></span>
-                        {{ trans('client.number_item') }}
+                        <img src="{{ asset('img/trolley.png') }}">
                     </a>
+                </li>
+                <li class="nav-item">
+                    @php $locale = session()->get('locale') @endphp
+                    <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" v-pre>
+                        @switch ($locale)
+                            @case ('en')
+                                <img src="{{ asset(config('path-img.en')) }}" class="img-lang">
+                                {{ trans('clients.english') }}
+                            @break
+                            @case ('vi')
+                                <img src="{{ asset(config('path-img.vn')) }}" class="img-lang">
+                                {{ trans('clients.vietnam') }}
+                            @break
+                        @endswitch
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('lang', ['locale' => 'en']) }}">
+                            <img src="{{ asset(config('path-img.en')) }}" class="img-lang">
+                            {{ trans('clients.english') }}
+                        </a>
+                        <a class="dropdown-item" href="{{ route('lang', ['locale' => 'vi']) }}">
+                            <img src="{{ asset(config('path-img.vn')) }}" class="img-lang">
+                            {{ trans('clients.vietnam') }}
+                        </a>
+                    </div>
                 </li>
             </ul>
         </div>
