@@ -13,8 +13,10 @@ return [
     'update_success' => 'Update successfully!',
     'categories' => 'Category',
     'list_category' => 'List Category',
+    'add_category' => 'Add Category',
     'name' => 'Name',
-    'parent_id' => 'Category parent',
     'level' => 'Level',
     'id' => 'Ordinal',
+    'submit' => 'Submit',
+    'edit_category' => 'Edit Category',
 ];
