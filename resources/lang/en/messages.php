@@ -44,6 +44,7 @@ return [
     'revenue_sources' => 'Revenue sources',
     'list_supliers' => 'List Supliers',
     'update_success' => 'Update successfully',
+    'login_fail' => 'Email or password not exaclly',
     'price_required' => 'Please enter the price!',
     'product_not_found' => 'Product not found',
 ];

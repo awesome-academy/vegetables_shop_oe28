@@ -44,6 +44,7 @@ return [
     'price' => 'Price',
     'list_supliers' => 'Danh sách nhà cung cấp',
     'update_success' => 'Cập nhật thành công!',
+    'login_fail' => 'Email hoặc password không chính xác',
     'price_required' => 'Vui lòng nhập giá tiền!',
     'product_not_found' => 'Không tìm thấy sản phẩm',
 ];

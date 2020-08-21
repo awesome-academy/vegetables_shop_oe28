@@ -31,6 +31,9 @@ return [
     'add_product' => 'Add product',
     'description' => 'Description',
     'select_image' => 'Select image',
+    'logout' => 'Logout',
+    'confirm_logout' => 'Are you sure logout?',
+    'cancel' => 'Cancel',
     'image' => 'Image',
     'list_post' => 'List post',
 ];

@@ -31,6 +31,9 @@ return [
     'add_product' => 'Thêm mới sản phẩm',
     'description' => 'Mô tả',
     'select_image' => 'Chọn ảnh',
+    'logout' => 'Đăng xuất',
+    'confirm_logout' => 'Bạn có chắc chắn muốn đăng xuất?',
+    'cancel' => 'Hủy',
     'image' => 'Ảnh',
     'list_post' => 'Danh sách bài viết',
 ];

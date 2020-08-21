@@ -5,15 +5,14 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{{ trans('messages.ready_to_leave') }}</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">{{ trans('templates.confirm_logout') }}</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">{{ trans('messages.select_logout ') }}</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">{{ trans('messages.cancel') }}</button>
-                    <a class="btn btn-primary" href="login.html">{{ trans('messages.logout') }}</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">{{ trans('templates.cancel') }}</button>
+                    <a class="btn btn-primary" href="{{ route('admin.get_logout') }}">{{ trans('templates.logout') }}</a>
                 </div>
             </div>
         </div>

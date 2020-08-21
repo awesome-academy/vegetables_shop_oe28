@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
 Route::group(['middleware' => 'localization'], function() {
     Route::get('lang/{locale}', 'Admins\AdminController@switchLanguage')
         ->name('lang');
@@ -21,6 +23,11 @@ Route::group(['middleware' => 'localization'], function() {
 // Admin
 
 Route::group(['prefix' => 'admin'], function () {
+    Route::get('login', 'Admins\AdminController@getLogin')->name('admin.get_login');
+    Route::post('login', 'Admins\AdminController@postLogin')->name('admin.post_login');
+        Route::get('logout', 'Admins\AdminController@getLogout')->name('admin.get_logout');
+    });
+Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin'], function () {
     Route::get('dashboard', 'Admins\AdminController@index')->name('dashboard');
     Route::resource('products', 'Admins\ProductController');
     Route::resource('supliers', 'Admins\SuplierController');
