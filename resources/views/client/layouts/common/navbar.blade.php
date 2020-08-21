@@ -1,23 +1,17 @@
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="index.html">{{ trans('clients.name_website') }}</a>
+        <a class="navbar-brand" href="{{ route('homepage') }}">{{ trans('clients.name_website') }}</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-            aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> {{ trans('clients.menu') }}
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="index.html" class="nav-link">{{ trans('clients.home') }}</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                <li class="nav-item active"><a href="{{ route('homepage') }}" class="nav-link">{{ trans('clients.home') }}</a></li>
+                <li class="nav-item user-regis-pa">
+                    <a href="{{ route('allProduct') }}" class="nav-link">
                         {{ trans('clients.product') }}
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown04">
-                        @foreach ($categories as $category)
-                            <a class="dropdown-item" href="#">{{ $category->name }}</a>
-                        @endforeach
-                    </div>
                 </li>
                 <li class="nav-item"><a href="{{ route('postIndex') }}" class="nav-link">{{ trans('clients.news') }}</a></li>
                 <li class="nav-item"><a href="blog.html" class="nav-link">{{ trans('clients.introduce') }}</a></li>
@@ -43,15 +37,15 @@
                 <li class="nav-item">
                     @php $locale = session()->get('locale') @endphp
                     <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false" v-pre>
+                       aria-haspopup="true" aria-expanded="false" v-pre>
                         @switch ($locale)
                             @case ('en')
-                                <img src="{{ asset(config('path-img.en')) }}" class="img-lang">
-                                {{ trans('clients.english') }}
+                            <img src="{{ asset(config('path-img.en')) }}" class="img-lang">
+                            {{ trans('clients.english') }}
                             @break
                             @case ('vi')
-                                <img src="{{ asset(config('path-img.vn')) }}" class="img-lang">
-                                {{ trans('clients.vietnam') }}
+                            <img src="{{ asset(config('path-img.vn')) }}" class="img-lang">
+                            {{ trans('clients.vietnam') }}
                             @break
                         @endswitch
                     </a>
@@ -70,3 +64,16 @@
         </div>
     </div>
 </nav>
+<section id="home-section" class="hero">
+    <div class="home-slider owl-carousel">
+        <div class="slider-item slider-img-1">
+            <div class="overlay"></div>
+        </div>
+        <div class="slider-item slider-img-2">
+            <div class="overlay"></div>
+        </div>
+        <div class="slider-item slider-img-3">
+            <div class="overlay"></div>
+        </div>
+    </div>
+</section>

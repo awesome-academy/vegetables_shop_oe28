@@ -91,10 +91,20 @@ ul.pagination {
 .reg-log a {
     color: #0c0c0c;
 }
+.reg-log a {
+    color: #0c0c0c;
+}
 .reg-log a:hover {
     color: #00cc00;
 }
 .mb-sub {
     font-size: 22px;
 }
-
+.product-category {
+    margin: auto;
+    width: 60%;
+}
+ul.pagination {
+     display: flex;
+     justify-content: center;
+ }

@@ -35,5 +35,5 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['namespace' => 'Clients'], function () {
     Route::get('/', 'HomeController@index');
     Route::get('post', 'PostController@index')->name('postIndex');
+    Route::get('product', 'ProductController@index')->name('allProduct');
 });
-
