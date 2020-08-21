@@ -24,8 +24,21 @@
                 <li class="nav-item"><a href="contact.html" class="nav-link">{{ trans('clients.delivery_regulations') }}</a></li>
                 <li class="nav-item cta cta-colored">
                     <a href="cart.html" class="nav-link">
-                        <img src="{{ asset('img/trolley.png') }}">
+                        <span class="icon-shopping_cart"></span>
                     </a>
+                </li>
+                <li class="nav-item user-regis-pa">
+                    <a href="#" class="nav-link">
+                        <i class='fas fa-user-alt'></i>
+                    </a>
+                    <ul class="reg-log">
+                        <li>
+                            <a href="#">{{ trans('clients.register') }}</a>
+                        </li>
+                        <li>
+                            <a href="#">{{ trans('clients.login') }}</a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     @php $locale = session()->get('locale') @endphp

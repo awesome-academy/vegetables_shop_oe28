@@ -34,9 +34,10 @@
                             <tr>
                                 <td>{{ $key += 1 }}</td>
                                 <td>
-                                    @foreach ($product->images as $image)
-                                         <img class="img-show" src="{{ asset('img/'. $image->image_path) }}">
-                                    @endforeach
+                                    @php $image = $product->images->first(); @endphp
+                                    @if (isset($image))
+                                        <img class="img-show" src="{{ asset('img/'. $image['image_path']) }}">
+                                    @endif
                                 </td>
                                 <td>{{ $product->name }}</td>
                                 <td>

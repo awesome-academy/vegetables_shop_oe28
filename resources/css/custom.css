@@ -20,6 +20,24 @@
 .slider-img-3 {
     background-image: url('../img/slide-homepage/bg_3.jpg');
 }
+.img-fruits {
+    background-image: url('../img/category-2.jpg');
+}
+.img-vegetable {
+    background-image: url('../img/category-3.jpg');
+}
+.img-dried {
+    background-image: url('../img/category-4.jpg');
+}
+.img-other-vege {
+    background-image: url('../img/category-1.jpg');
+}
+.img-category {
+    background-image: url("../img/category.jpg");
+}
+.img-category {
+    background-image: url("../img/category.jpg");
+}
 .img-show {
     width: 50px;
     height: 50px;
@@ -36,3 +54,47 @@ ul.pagination {
     width: 100px;
     height: 100px;
 }
+.back-top {
+    width: 60px;
+    height: 60px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+    background: #82ae46;
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+.bg-light {
+    background: #e4e2db !important;
+}
+.goto-here {
+    background: #efeaea;
+}
+.user-regis-pa {
+    position: relative;
+}
+.user-regis-pa ul {
+    position: absolute;
+    display: none;
+    background: #fff;
+}
+.user-regis-pa:hover ul {
+    display: inline-block;
+    list-style: none;
+    width: 150px;
+}
+.reg-log a {
+    color: #0c0c0c;
+}
+.reg-log a:hover {
+    color: #00cc00;
+}
+.mb-sub {
+    font-size: 22px;
+}
+

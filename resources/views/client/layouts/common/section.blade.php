@@ -1,28 +1,17 @@
-<section class="ftco-section testimony-section">
-    <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-            <div class="col-md-7 heading-section ftco-animate text-center">
-                <h2 class="mb-4">{{ trans('clients.customer_say') }}</h2>
+<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
+    <div class="container py-4">
+        <div class="row d-flex justify-content-center py-5">
+            <div class="col-md-6">
+                <h2 class="mb-0 mb-sub">{{ trans('clients.subscribe') }}</h2>
+                <span>{{ trans('clients.get_offer') }}</span>
             </div>
-        </div>
-        <div class="row ftco-animate">
-            <div class="col-md-12">
-                <div class="carousel-testimony owl-carousel">
-                    <div class="item">
-                        <div class="testimony-wrap p-4 pb-5">
-                            <div class="user-img mb-5">
-                                <span class="quote d-flex align-items-center justify-content-center">
-                                    <i class="icon-quote-left"></i>
-                                </span>
-                            </div>
-                            <div class="text text-center">
-                                <p class="mb-5 pl-4 line"></p>
-                                <p class="name"></p>
-                                <span class="position"></span>
-                            </div>
-                        </div>
+            <div class="col-md-6 d-flex align-items-center">
+                <form action="#" class="subscribe-form">
+                    <div class="form-group d-flex">
+                        <input type="text" class="form-control" placeholder="{{ trans('clients.enter-email') }}">
+                        <input type="submit" value="{{ trans('clients.subscribe') }}" class="submit px-3">
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
