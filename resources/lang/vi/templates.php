@@ -27,4 +27,5 @@ return [
     'id' => 'STT',
     'submit' => 'Thêm',
     'edit_category' => 'Chỉnh sửa danh mục',
+    'image' => 'Ảnh',
 ];

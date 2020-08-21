@@ -27,4 +27,5 @@ return [
     'id' => 'Ordinal',
     'submit' => 'Submit',
     'edit_category' => 'Edit Category',
+    'image' => 'Image',
 ];

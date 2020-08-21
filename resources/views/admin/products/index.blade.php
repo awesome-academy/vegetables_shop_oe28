@@ -18,6 +18,7 @@
                         <thead>
                             <tr>
                                 <th>{{ trans('templates.id') }}</th>
+                                <th>{{ trans('templates.image') }}</th>
                                 <th>{{ trans('templates.name') }}</th>
                                 <th>{{ trans('templates.category') }}</th>
                                 <th>{{ trans('templates.supplier') }}</th>
@@ -32,6 +33,11 @@
                         @foreach ($products as $key => $product)
                             <tr>
                                 <td>{{ $key += 1 }}</td>
+                                <td>
+                                    @foreach ($product->images as $image)
+                                         <img class="img-show" src="{{ asset('img/'. $image->image_path) }}">
+                                    @endforeach
+                                </td>
                                 <td>{{ $product->name }}</td>
                                 <td>
                                     <a href="{{ route('categories.edit', $product->category_id) }}">
@@ -39,7 +45,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="{{ route('supliers.edit', $product->suplier_id) }}">
+                                    <a href="{{ route('supliers.edit', $product->suplier_id ? $product->suplier_id : 0) }}">
                                         {{ @$product->supplier->name }}
                                     </a>
                                 </td>
