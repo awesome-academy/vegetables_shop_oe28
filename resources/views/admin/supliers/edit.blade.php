@@ -6,7 +6,7 @@
         @include('admin.layouts.common.errors')
         <form action="{{ route('supliers.update', $supliers->id) }}" method="POST" class="form-horizontal">
             @method('PATCH')
-            {{ csrf_field() }}
+            @csrf
             <div class="form-group">
                 <label>{{ trans('messages.name') }}:</label>
                 <input type="text" class="form-control" name="name" value="{{ $supliers->name }}">
