@@ -3,17 +3,15 @@
 namespace App\Http\Controllers\Admins;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreProductRequest;
+use App\Models\Category;
 use App\Models\Image;
 use App\Models\Product;
-use Illuminate\Http\Request;
+use App\Models\Supplier;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $products = Product::all();
@@ -21,70 +19,81 @@ class ProductController extends Controller
         return view('admin.products.index', compact('products'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $categories = Category::all();
+        $suppliers = Supplier::all();
+
+        return view('admin.products.create', compact(['categories', 'suppliers']));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
-        //
+        if (!isset($request->image_path[0])) {
+            return redirect()->back()->with('error_image', trans('messages.image_error'));
+        }
+        $product = Product::create($request->all());
+        $images = $request->image_path;
+        foreach ($images as $image) {
+            Image::create([
+                'product_id' => $product->id,
+                'image_path' => $image,
+            ]);
+        }
+
+        return redirect()->route('products.index')->with('success', trans('messages.add_success'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        try {
+            $product = Product::findOrFail($id);
+        } catch (ModelNotFoundException $exception) {
+            return back()->withErrors($exception->getMessage())->withInput();
+        }
+        $categories = Category::all();
+        $suppliers = Supplier::all();
+
+        return view('admin.products.edit', compact(['product', 'categories', 'suppliers']));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(StoreProductRequest $request, $id)
     {
-        //
+        if (!isset($request->image_path[0])) {
+            return redirect()->back()->with('error_image', trans('messages.image_error'));
+        }
+        try {
+            $product = Product::findOrFail($id);
+        } catch (ModelNotFoundException $exception) {
+            return back()->withErrors($exception->getMessage())->withInput();
+        }
+        $product->update($request->all());
+        foreach ($product->images as $image) {
+            $image->delete();
+        }
+        $images = $request->image_path;
+        foreach ($images as $image) {
+            Image::create([
+                'product_id' => $product->id,
+                'image_path' => $image,
+            ]);
+        }
+
+        return redirect()->route('products.index')->with('success', trans('messages.update_success'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        $product = Product::findOrFail($id);
+        try {
+            $product = Product::findOrFail($id);
+        } catch (ModelNotFoundException $exception) {
+            return back()->withErrors($exception->getMessage())->withInput();
+        }
         $product->delete();
 
         return redirect()->route('products.index')->with('success', trans('messages.delete_success'));

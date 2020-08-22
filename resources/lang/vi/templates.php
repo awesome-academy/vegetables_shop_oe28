@@ -28,6 +28,9 @@ return [
     'id' => 'STT',
     'submit' => 'Thêm',
     'edit_category' => 'Chỉnh sửa danh mục',
+    'add_product' => 'Thêm mới sản phẩm',
+    'description' => 'Mô tả',
+    'select_image' => 'Chọn ảnh',
     'image' => 'Ảnh',
     'list_post' => 'Danh sách bài viết',
 ];

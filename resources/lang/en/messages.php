@@ -26,6 +26,7 @@ return [
     'phone_required' => 'Please enter the phone!',
     'phone_unique' => 'Phone exits!',
     'address_required' => 'Please enter the address!',
+    'image_error' => 'Please select image!',
     'whoops_something_went_wrong' => 'Whoops! Something went wrong!',
     'add_success' => 'Add successfully !',
     'sign_in' => 'Sign in',
@@ -43,4 +44,6 @@ return [
     'revenue_sources' => 'Revenue sources',
     'list_supliers' => 'List Supliers',
     'update_success' => 'Update successfully',
+    'price_required' => 'Please enter the price!',
+    'product_not_found' => 'Product not found',
 ];

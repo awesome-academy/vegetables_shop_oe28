@@ -28,6 +28,9 @@ return [
     'id' => 'Ordinal',
     'submit' => 'Submit',
     'edit_category' => 'Edit Category',
+    'add_product' => 'Add product',
+    'description' => 'Description',
+    'select_image' => 'Select image',
     'image' => 'Image',
     'list_post' => 'List post',
 ];

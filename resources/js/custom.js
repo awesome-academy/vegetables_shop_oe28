@@ -28,3 +28,30 @@ jQuery(document).ready(function($) {
         );
     });
 });
+
+//upload image
+$(function () {
+    var imagesPreview = function imagesPreview(input, placeToInsertImagePreview) {
+        if (input.files) {
+            var filesAmount = input.files.length;
+            for (i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                    var file = event.target;
+
+                    $(`<span class="pip">
+                        <i class="fa fa-times-circle delete-image"></i>
+                        <img class="image_products" src="${event.target.result}"
+                        /> </span>`).insertAfter("#gallery-photo-add");
+                    $(".delete-image").click(function () {
+                        $(this).parent(".pip").remove();
+                    });
+                };
+                reader.readAsDataURL(input.files[i]);
+            }
+        }
+    };
+    $('#gallery-photo-add').on('change', function () {
+        imagesPreview(this, 'div.gallery');
+    });
+});

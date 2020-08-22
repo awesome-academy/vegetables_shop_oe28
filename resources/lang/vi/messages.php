@@ -26,6 +26,7 @@ return [
     'phone_required' => 'Vui lòng nhập số điện thoại!',
     'phone_unique' => 'Số điện thoại đã tồn tại!',
     'address_required' => 'Vui lòng nhập địa chỉ!',
+    'image_error' => 'Vui lòng chọn hình ảnh!',
     'whoops_something_went_wrong' => 'Đã xảy ra lỗi!',
     'add_success' => 'Thêm mới thành công !',
     'sign_in' => 'Đăng nhập',
@@ -43,4 +44,6 @@ return [
     'price' => 'Price',
     'list_supliers' => 'Danh sách nhà cung cấp',
     'update_success' => 'Cập nhật thành công!',
+    'price_required' => 'Vui lòng nhập giá tiền!',
+    'product_not_found' => 'Không tìm thấy sản phẩm',
 ];

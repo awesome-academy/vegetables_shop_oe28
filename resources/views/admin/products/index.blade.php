@@ -41,7 +41,7 @@
                                 </td>
                                 <td>{{ $product->name }}</td>
                                 <td>
-                                    <a href="{{ route('categories.edit', $product->category_id) }}">
+                                    <a href="{{ route('categories.edit', @$product->category_id) }}">
                                         {{ @$product->category->name }}
                                     </a>
                                 </td>
