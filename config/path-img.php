@@ -10,4 +10,6 @@ return [
     'poly-4' => 'img/policy-img/support.png',
     'en' => 'img/policy-img/en.png',
     'vn' => 'img/policy-img/vn.png',
+    'default-posts' => 'img/default.jpg',
+    'img' => 'img/',
 ];

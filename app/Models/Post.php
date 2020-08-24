@@ -11,6 +11,8 @@ class Post extends Model
         'intro',
         'category_id',
         'content',
+        'updated_at',
+        'category_id',
     ];
 
     public function images()

@@ -19,7 +19,7 @@
                         @endforeach
                     </div>
                 </li>
-                <li class="nav-item"><a href="about.html" class="nav-link">{{ trans('clients.news') }}</a></li>
+                <li class="nav-item"><a href="{{ route('postIndex') }}" class="nav-link">{{ trans('clients.news') }}</a></li>
                 <li class="nav-item"><a href="blog.html" class="nav-link">{{ trans('clients.introduce') }}</a></li>
                 <li class="nav-item"><a href="contact.html" class="nav-link">{{ trans('clients.delivery_regulations') }}</a></li>
                 <li class="nav-item cta cta-colored">

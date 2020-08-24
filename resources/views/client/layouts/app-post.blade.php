@@ -14,10 +14,6 @@
 
     @yield('content')
 
-    @include('client.layouts.common.section')
-
-    @include('client.layouts.common.section-partner')
-
     @include('client.layouts.common.footer')
 
     @include('client.layouts.common.foot')

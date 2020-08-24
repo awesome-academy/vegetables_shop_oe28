@@ -24,3 +24,15 @@
     width: 50px;
     height: 50px;
 }
+.img-fea-post {
+    width: 300px;
+    height: 300px;
+}
+ul.pagination {
+    width: 0;
+    margin: auto;
+}
+.img-recent {
+    width: 100px;
+    height: 100px;
+}
