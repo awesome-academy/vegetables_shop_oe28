@@ -24,9 +24,10 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('dashboard', 'Admins\AdminController@index')->name('dashboard');
     Route::resource('products', 'Admins\ProductController');
     Route::resource('supliers', 'Admins\SuplierController');
-    Route::resource('users', 'Admins\UserController'  );
+    Route::resource('users', 'Admins\UserController');
     Route::resource('categories', 'Admins\CategoryController');
-    Route::resource('roles', 'Admins\RoleController'  );
+    Route::resource('roles', 'Admins\RoleController');
+    Route::resource('posts', 'Admins\PostController');
 });
 
 // Client

@@ -5,6 +5,7 @@ return [
     'edit_supliers' => 'Edit Supliers',
     'submit_edit' => 'Update',
     'manage_advance' => 'Manage advance',
+    'manage_post' => 'Posts',
     'roles' => 'Roles',
     'list_role' => 'List Role',
     'add_role' => 'Add role',
@@ -28,4 +29,5 @@ return [
     'submit' => 'Submit',
     'edit_category' => 'Edit Category',
     'image' => 'Image',
+    'list_post' => 'List post',
 ];

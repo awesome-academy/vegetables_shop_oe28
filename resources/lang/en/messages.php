@@ -3,8 +3,9 @@
 return [
     'sb_admin' => 'Admin Vegetable',
     'title' => 'Manage Vegetable',
-    'manage_product' => 'Manage Product',
-    'list_product' => 'List products',
+    'manage_basic' => 'Manage basic',
+    'manage_product' => 'Products',
+    'manage_post' => 'Posts',
     'suplier' => 'Supplier',
     'manage' => 'Manage',
     'name' => 'Name',
