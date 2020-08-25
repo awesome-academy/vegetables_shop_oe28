@@ -3,8 +3,9 @@
 return [
     'sb_admin' => 'Admin Vegetable',
     'title' => 'Manage vegetable',
-    'manage_product' => 'Quản lý sản phẩm',
-    'list_product' => 'Danh sách sản phẩm',
+    'manage_basic' => 'Quản lý cơ bản',
+    'manage_product' => 'Sản phẩm',
+    'manage_post' => 'Bài viết',
     'suplier' => 'Nhà cung cấp',
     'manage' => 'Quản lý',
     'name' => 'Tên',

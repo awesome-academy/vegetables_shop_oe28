@@ -5,6 +5,7 @@ return [
     'edit_supliers' => 'Chỉnh sửa Nhà cung cấp',
     'submit_edit' => 'Cập nhật',
     'manage_advance' => 'Quản lý nâng cao',
+    'manage_post' => 'Bài viết',
     'roles' => 'Quyền',
     'list_role' => 'Danh sách quyền',
     'add_role' => 'Thêm quyền',
@@ -28,4 +29,5 @@ return [
     'submit' => 'Thêm',
     'edit_category' => 'Chỉnh sửa danh mục',
     'image' => 'Ảnh',
+    'list_post' => 'Danh sách bài viết',
 ];
