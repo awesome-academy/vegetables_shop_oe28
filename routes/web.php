@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,29 +17,28 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::group(['middleware' => 'localization'], function() {
-    Route::get('lang/{locale}', 'Admins\AdminController@switchLanguage')
-        ->name('lang');
+    Route::get('lang/{locale}', 'Admins\AdminController@switchLanguage')->name('lang');
 });
 
-// Admin
+// Login & logout admin
+Route::group(['prefix' => 'admin', 'namespace' => 'Admins'], function () {
+    Route::get('login', 'AdminController@getLogin')->name('admin.get_login');
+    Route::post('login', 'AdminController@postLogin')->name('admin.post_login');
+    Route::get('logout', 'AdminController@getLogout')->name('admin.get_logout');
+});
 
-Route::group(['prefix' => 'admin'], function () {
-    Route::get('login', 'Admins\AdminController@getLogin')->name('admin.get_login');
-    Route::post('login', 'Admins\AdminController@postLogin')->name('admin.post_login');
-        Route::get('logout', 'Admins\AdminController@getLogout')->name('admin.get_logout');
-    });
-Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin'], function () {
-    Route::get('dashboard', 'Admins\AdminController@index')->name('dashboard');
-    Route::resource('products', 'Admins\ProductController');
-    Route::resource('supliers', 'Admins\SuplierController');
-    Route::resource('users', 'Admins\UserController');
-    Route::resource('categories', 'Admins\CategoryController');
-    Route::resource('roles', 'Admins\RoleController');
-    Route::resource('posts', 'Admins\PostController');
+// page Admin
+Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin', 'namespace' => 'Admins'], function () {
+    Route::get('dashboard', 'AdminController@index')->name('dashboard');
+    Route::resource('products', 'ProductController');
+    Route::resource('supliers', 'SuplierController');
+    Route::resource('users', 'UserController');
+    Route::resource('categories', 'CategoryController');
+    Route::resource('roles', 'RoleController');
+    Route::resource('posts', 'PostController');
 });
 
 // Client
-
 Route::group(['namespace' => 'Clients'], function () {
     Route::get('/', 'HomeController@index')->name('client.homepage');
     Route::get('post', 'PostController@index')->name('client.post_index');
