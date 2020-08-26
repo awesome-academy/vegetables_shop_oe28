@@ -32,4 +32,8 @@ Route::group(['prefix' => 'admin'], function () {
 
 // Client
 
-Route::get('/', 'Clients\HomeController@index');
+Route::group(['namespace' => 'Clients'], function () {
+    Route::get('/', 'HomeController@index');
+    Route::get('post', 'PostController@index')->name('postIndex');
+});
+

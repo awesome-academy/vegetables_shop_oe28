@@ -13,4 +13,8 @@ return [
     'free_ship' => 'Với hóa đơn > 300000đ',
     'english' => 'English',
     'vietnam' => 'Vietnam',
+    'read_more' => 'Đọc thêm',
+    'recent_blog' => 'Bài viết gần đây',
+    'categories' => 'Danh mục',
+    'search' => 'Tìm kiếm...',
 ];

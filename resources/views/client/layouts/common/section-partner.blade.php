@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-sm ftco-animate">
                 <a href="#" class="partner">
-                    <img src="#" class="img-fluid" alt="Colorlib Template">
+                    <img src="#" class="img-fluid">
                 </a>
             </div>
         </div>

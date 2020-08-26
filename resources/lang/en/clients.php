@@ -13,4 +13,8 @@ return [
     'free_ship' => 'on order over 300000đ',
     'english' => 'English',
     'vietnam' => 'Vietnam',
+    'read_more' => 'Read more',
+    'recent_blog' => 'Recent Blog',
+    'categories' => 'Categories',
+    'search' => 'Search...',
 ];
