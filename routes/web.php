@@ -33,7 +33,9 @@ Route::group(['prefix' => 'admin'], function () {
 // Client
 
 Route::group(['namespace' => 'Clients'], function () {
-    Route::get('/', 'HomeController@index');
-    Route::get('post', 'PostController@index')->name('postIndex');
-    Route::get('product', 'ProductController@index')->name('allProduct');
+    Route::get('/', 'HomeController@index')->name('client.homepage');
+    Route::get('post', 'PostController@index')->name('client.post_index');
+    Route::get('product', 'ProductController@index')->name('client.all_product');
+    Route::get('introduce', 'HomeController@introduce')->name('client.introduce');
+    Route::get('delivery', 'HomeController@delivery')->name('client.delivery');
 });
