@@ -47,7 +47,13 @@ return [
     'login_fail' => 'Email hoặc password không chính xác',
     'price_required' => 'Vui lòng nhập giá tiền!',
     'product_not_found' => 'Không tìm thấy sản phẩm',
+    're_password_required' => 'Vui lòng nhập lại password',
+    'password_required' => 'Vui lòng nhập password',
     'bill_success' => 'Đơn hàng tạo thành công',
     'error_required' => 'Vui lòng nhập vào các trường có dấu (*)',
     'import_date_require' => 'Vui lòng điền ngày nhập hàng',
+    'register_success' => 'Đăng ký thành công',
+    'logout_success' => 'Đăng xuất thành công',
+    'login_success' => 'Đăng nhập thành công',
+    'update_profile_success' => 'Cập nhật hồ sơ thành công',
 ];

@@ -510,3 +510,7 @@ input#quantity {
 .required-input {
     color: #ff0000;
 }
+.gg-map {
+    width: 600px;
+    height: 450px;
+}
