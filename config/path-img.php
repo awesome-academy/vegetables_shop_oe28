@@ -10,6 +10,10 @@ return [
     'poly-4' => 'img/policy-img/support.png',
     'en' => 'img/policy-img/en.png',
     'vn' => 'img/policy-img/vn.png',
+    'partner-1' => 'img/partner/vietgap.jpeg',
+    'partner-2' => 'img/partner/tan-cuong-xanh.jpg',
+    'partner-3' => 'img/partner/hadico.jpeg',
+    'partner-4' => 'img/partner/head-way.jpeg',
     'default-posts' => 'img/default.jpg',
     'img' => 'img/',
 ];

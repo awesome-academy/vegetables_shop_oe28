@@ -22,8 +22,8 @@
                             <img src="{{ asset(config('path-img.poly-2')) }}" alt="">
                         </div>
                         <div class="media-body">
-                            <h3 class="heading">{{ trans('clients.frship') }}</h3>
-                            <span>{{ trans('clients.free_ship') }}</span>
+                            <h3 class="heading">{{ trans('clients.alway_fresh') }}</h3>
+                            <span>{{ trans('clients.product_well') }}</span>
                         </div>
                     </div>
                 </div>
@@ -33,8 +33,8 @@
                             <img src="{{ asset(config('path-img.poly-3')) }}" alt="">
                         </div>
                         <div class="media-body">
-                            <h3 class="heading">{{ trans('clients.frship') }}</h3>
-                            <span>{{ trans('clients.free_ship') }}</span>
+                            <h3 class="heading">{{ trans('clients.superior') }}</h3>
+                            <span>{{ trans('clients.quality') }}</span>
                         </div>
                     </div>
                 </div>
@@ -44,8 +44,8 @@
                             <img src="{{ asset(config('path-img.poly-4')) }}" alt="">
                         </div>
                         <div class="media-body">
-                            <h3 class="heading">{{ trans('clients.frship') }}</h3>
-                            <span>{{ trans('clients.free_ship') }}</span>
+                            <h3 class="heading">{{ trans('clients.support') }}</h3>
+                            <span>{{ trans('clients.24_7') }}</span>
                         </div>
                     </div>
                 </div>
@@ -59,21 +59,20 @@
                 <div class="col-md-8">
                     <div class="row">
                         <div class="col-md-6 order-md-last align-items-stretch d-flex">
-                            <div class="category-wrap-2 ftco-animate img align-self-stretch d-flex">
+                            <div class="category-wrap-2 ftco-animate img align-self-stretch d-flex img-fruits img-category">
                                 <div class="text text-center">
                                     <h2>{{ trans('clients.vegetables') }}</h2>
-                                    <p></p>
-                                    <p><a href="#" class="btn btn-primary">{{ trans('clients.shop_now') }}</a></p>
+                                    <p>{{ trans('clients.protect_home') }}</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end">
+                            <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end img-fruits">
                                 <div class="text px-3 py-1">
                                     <h2 class="mb-0"><a href="#">{{ trans('clients.fruits') }}</a></h2>
                                 </div>
                             </div>
-                            <div class="category-wrap ftco-animate img d-flex align-items-end">
+                            <div class="category-wrap ftco-animate img d-flex align-items-end img-vegetable">
                                 <div class="text px-3 py-1">
                                     <h2 class="mb-0"><a href="#">{{ trans('clients.vegetable') }}</a></h2>
                                 </div>
@@ -82,14 +81,14 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end">
-                        <div class="text px-3 py-1">
-                            <h2 class="mb-0"><a href="#">{{ trans('clients.juice') }}</a></h2>
-                        </div>
-                    </div>
-                    <div class="category-wrap ftco-animate img d-flex align-items-end">
+                    <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end img-dried">
                         <div class="text px-3 py-1">
                             <h2 class="mb-0"><a href="#">{{ trans('clients.dried') }}</a></h2>
+                        </div>
+                    </div>
+                    <div class="category-wrap ftco-animate img d-flex align-items-end img-other-vege">
+                        <div class="text px-3 py-1">
+                            <h2 class="mb-0"><a href="#">{{ trans('clients.other_vegefood') }}</a></h2>
                         </div>
                     </div>
                 </div>
@@ -101,27 +100,35 @@
         <div class="container">
             <div class="row justify-content-center mb-3 pb-3">
                 <div class="col-md-12 heading-section text-center ftco-animate">
-                    <span class="subheading">{{ trans('clients.feature') }}</span>
-                    <h2 class="mb-4">{{ trans('clients.our_product') }}</h2>
+                    <span class="subheading">{{ trans('clients.featured_product') }}</span>
+                    <p>{{ trans('clients.clean_food') }}</p>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-lg-3 ftco-animate">
+                @foreach ($products as $product)
+                    <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="product">
                         <a href="#" class="img-prod">
-                            <img class="img-fluid" src="#" alt="Colorlib Template">
-                            <span class="status"></span>
+                            @php $image = $product->images->first() @endphp
+                            <img class="img-fluid" src="{{ asset('img/'. $image['image_path']) }}"
+                                 alt="Colorlib Template">
                             <div class="overlay"></div>
                         </a>
                         <div class="text py-3 pb-4 px-3 text-center">
-                            <h3><a href="#"></a></h3>
+                            <h3>
+                                <a href="#">{{ $product->name }}</a>
+                            </h3>
                             <div class="d-flex">
                                 <div class="pricing">
                                     <p class="price">
-                                        <span class="mr-2 price-dc"></span>
-                                        <span class="price-sale"></span>
+                                        @if (isset($product->price_discount))
+                                            <span class="mr-2 price-dc">{{ $product->price }} đ</span>
+                                        @endif
+                                        <span class="price-sale">
+                                            {{ $product->price_discount ? $product->price_discount : $product->price }} đ
+                                        </span>
                                     </p>
                                 </div>
                             </div>
@@ -141,6 +148,7 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </section>
