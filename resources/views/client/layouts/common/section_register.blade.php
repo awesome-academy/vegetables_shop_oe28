@@ -2,7 +2,7 @@
     <div class="container py-4">
         <div class="row d-flex justify-content-center py-5">
             <div class="col-md-6">
-                <h2 class="mb-0">{{ trans('clients.subcribe') }}</h2>
+                <h2 class="mb-0">{{ trans('clients.subscribe') }}</h2>
                 <span>{{ trans('clients.message') }}</span>
             </div>
             <div class="col-md-6 d-flex align-items-center">

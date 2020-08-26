@@ -111,4 +111,11 @@ ul.pagination {
 ul.pagination {
      display: flex;
      justify-content: center;
- }
+}
+.title-introduce {
+    font-size: 20px;
+    text-align: center;
+}
+.section-introduce {
+    font-size: 15px;
+}
