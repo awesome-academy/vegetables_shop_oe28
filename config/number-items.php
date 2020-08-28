@@ -1,5 +1,7 @@
 <?php
 
 return [
-    'number-product' => 12,
+    'number_product' => 12,
+    'zero' => 0,
+    'unit' => 'đ',
 ];

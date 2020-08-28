@@ -13,4 +13,6 @@
 <link rel="stylesheet" href="{{ asset('bower_components/bower-package/css/icomoon.css') }}">
 <link rel="stylesheet" href="{{ asset('bower_components/bower-package/css/style.css') }}">
 <link rel="stylesheet" href="{{ asset('bower_components/Font-Awesome/css/fontawesome.min.css') }}">
+<link rel="stylesheet" href="{{ asset('bower_components/AlertifyJS/build/css/alertify.min.css') }}">
+<link rel="stylesheet" href="{{ asset('bower_components/AlertifyJS/build/css/themes/default.min.css') }}">
 <link href="{{ mix('css/custom.css') }}" rel="stylesheet">

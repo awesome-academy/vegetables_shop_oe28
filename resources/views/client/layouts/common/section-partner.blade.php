@@ -8,7 +8,6 @@
         <div class="row">
             <div class="col-sm ftco-animate">
                 <a href="#" class="partner">
-                    <img src="#" class="img-fluid">
                     <img src="{{ asset(config('path-img.partner-1')) }}" class="img-fluid">
                 </a>
             </div>

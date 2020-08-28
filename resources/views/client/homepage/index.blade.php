@@ -112,33 +112,38 @@
                     <div class="product">
                         <a href="#" class="img-prod">
                             @php $image = $product->images->first() @endphp
-                            <img class="img-fluid" src="{{ asset('img/'. $image['image_path']) }}"
-                                 alt="Colorlib Template">
+                            <img class="img-fluid" src="{{ asset(config('path-img.img') . $image['image_path']) }}">
                             <div class="overlay"></div>
                         </a>
                         <div class="text py-3 pb-4 px-3 text-center">
                             <h3>
                                 <a href="#">{{ $product->name }}</a>
                             </h3>
+                            <h3>
+                                @if(isset($product->supplier->name))
+                                    <a href="#">{{ trans('clients.supplier') . ": " . @$product->supplier->name }}</a>
+                                @else
+                                    <a href="#">{{ trans('clients.supplier') . ": " . trans('clients.other') }}</a>
+                                @endif
+                            </h3>
                             <div class="d-flex">
                                 <div class="pricing">
                                     <p class="price">
                                         @if (isset($product->price_discount))
-                                            <span class="mr-2 price-dc">{{ $product->price }} đ</span>
+                                            <span class="mr-2 price-dc">{{ number_format($product->price) }}</span>
                                         @endif
                                         <span class="price-sale">
-                                            {{ $product->price_discount ? $product->price_discount : $product->price }} đ
+                                            {{ $product->price_discount ? number_format($product->price_discount) : number_format($product->price) }}
+                                            đ/{{ $product->weight_item . $product->unit }}
                                         </span>
                                     </p>
                                 </div>
                             </div>
                             <div class="bottom-area d-flex px-3">
                                 <div class="m-auto d-flex">
-                                    <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                        <span><i class="ion-ios-menu"></i></span>
-                                    </a>
-                                    <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                        <span><i class="ion-ios-cart"></i></span>
+                                    <a href="javascript:" id="{{ $product->id }}"
+                                        class="buy-now d-flex justify-content-center align-items-center mx-1 add-to-cart">
+                                        <i class="ion-ios-cart"></i>
                                     </a>
                                     <a href="#" class="heart d-flex justify-content-center align-items-center ">
                                         <span><i class="ion-ios-heart"></i></span>
@@ -152,5 +157,4 @@
             </div>
         </div>
     </section>
-
 @endsection
