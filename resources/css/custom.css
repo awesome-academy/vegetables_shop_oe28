@@ -58,6 +58,9 @@ ul.pagination {
     width: 100px;
     height: 100px;
 }
+.img-container {
+    background-image: url("../img/bg-01.jpg");
+}
 .back-top {
     width: 60px;
     height: 60px;
