@@ -50,4 +50,6 @@ Route::group(['namespace' => 'Clients'], function () {
     Route::get('view-cart', 'CartController@viewCart')->name('client.view_cart');
     Route::get('delete-list-item-cart/{id}', 'CartController@deleteListItemCart');
     Route::get('save-item-cart/{id}/{quantity}', 'CartController@saveListItemCart');
+    Route::get('product-detail/{id}', 'ProductController@detailProduct')->name('client.product_detail');
+    Route::get('product-detail/add-to-cart/{id}', 'CartController@addToCart')->name('client.add_cart');
 });

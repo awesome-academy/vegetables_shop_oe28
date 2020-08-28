@@ -17,7 +17,7 @@
                 <li class="nav-item"><a href="{{ route('client.introduce') }}" class="nav-link">{{ trans('clients.introduce') }}</a></li>
                 <li class="nav-item"><a href="{{ route('client.delivery') }}" class="nav-link">{{ trans('clients.delivery_regulations') }}</a></li>
                 <li class="nav-item nav-cart">
-                    @if (Session::has('Cart') != null)
+                    @if (!empty(Session::has('Cart')))
                         <a href="#" class="nav-link">
                             <i class='fa fa-shopping-cart'><sup id="total-qty-show">{{ Session::get('Cart')->totalQty }}</sup></i>
                         </a>
@@ -33,27 +33,27 @@
                                 @if (!empty(Session::has('Cart')))
                                     @php $cart = Session::get('Cart') @endphp
                                     @foreach ($cart->products as $product)
-                                        <div class="cart-product">
-                                            <div class="cart-img-product">
-                                                @php $img = $product['productInfo']->images->first(); @endphp
-                                                <img src="{{ asset(config('path-img.img') . $img['image_path']) }}">
-                                            </div>
-                                            <div class="cart-info-product">
-                                                <h4>{{ $product['productInfo']->name }}</h4>
-                                                <div class="cart-product-purchase">
-                                                    @if (isset($product['productInfo']->price_discount))
-                                                        <p class="price">{{ number_format($product['productInfo']->price_discount) }}
-                                                            {{ config('number-items.unit') }} x {{ $product['quantity'] }}</p>
-                                                    @else
-                                                        <p class="price">{{ number_format($product['productInfo']->price) }}
-                                                            {{ config('number-items.unit') }} x {{ $product['quantity'] }}</p>
-                                                    @endif
+                                            <div class="cart-product">
+                                                <div class="cart-img-product">
+                                                    @php $img = $product['productInfo']->images->first(); @endphp
+                                                    <img src="{{ asset(config('path-img.img') . $img['image_path']) }}">
                                                 </div>
+                                                <div class="cart-info-product">
+                                                    <h4>{{ $product['productInfo']->name }}</h4>
+                                                    <div class="cart-product-purchase">
+                                                        @if (isset($product['productInfo']->price_discount))
+                                                            <p class="price">{{ number_format($product['productInfo']->price_discount) }}
+                                                                {{ config('number-items.unit') }} x {{ $product['quantity'] }}</p>
+                                                        @else
+                                                            <p class="price">{{ number_format($product['productInfo']->price) }}
+                                                                {{ config('number-items.unit') }} x {{ $product['quantity'] }}</p>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                                <input type="button" class="remove-item"
+                                                    data-id="{{ $product['productInfo']->id }}" value="X"/>
                                             </div>
-                                            <input type="button" class="remove-item"
-                                                data-id="{{ $product['productInfo']->id }}" value="X"/>
-                                        </div>
-                                    @endforeach
+                                        @endforeach
                                     <div class="total-info">
                                         <div class="cart-info">
                                             <div class="inside-cart">

@@ -29,7 +29,7 @@
                             @foreach ($products as $product)
                                 <div class="col-md-6 col-lg-3 ftco-animate">
                                     <div class="product">
-                                        <a href="#" class="img-prod">
+                                        <a href="{{ route('client.product_detail', $product->id) }}" class="img-prod">
                                             @php $image = $product->images->first() @endphp
                                             <img class="img-fluid" src="{{ asset(config('path-img.img'). $image['image_path']) }}">
                                             <div class="overlay"></div>
@@ -50,11 +50,9 @@
                                             </div>
                                             <div class="bottom-area d-flex px-3">
                                                 <div class="m-auto d-flex">
-                                                    <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                                        <span><i class="ion-ios-menu"></i></span>
-                                                    </a>
-                                                    <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                                        <span><i class="ion-ios-cart"></i></span>
+                                                    <a href="javascript:" id="{{ $product->id }}"
+                                                       class="buy-now d-flex justify-content-center align-items-center mx-1 add-to-cart">
+                                                        <i class="ion-ios-cart"></i>
                                                     </a>
                                                     <a href="#" class="heart d-flex justify-content-center align-items-center ">
                                                         <span><i class="ion-ios-heart"></i></span>
@@ -79,8 +77,8 @@
                                 @foreach ($product_tabs as $product)
                                     <div class="col-md-6 col-lg-3 ftco-animate">
                                         <div class="product">
-                                            <a href="#" class="img-prod">
-                                                @php $image = $product->images->first() @endphp
+                                            <a href="{{ route('client.product_detail', $product->id) }}" class="img-prod">
+                                            @php $image = $product->images->first() @endphp
                                                 <img class="img-fluid" src="{{ asset(config('path-img.img'). $image['image_path']) }}">
                                                 <div class="overlay"></div>
                                             </a>
@@ -100,11 +98,9 @@
                                                 </div>
                                                 <div class="bottom-area d-flex px-3">
                                                     <div class="m-auto d-flex">
-                                                        <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                                            <span><i class="ion-ios-menu"></i></span>
-                                                        </a>
-                                                        <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                                            <span><i class="ion-ios-cart"></i></span>
+                                                        <a href="javascript:" id="{{ $product->id }}"
+                                                           class="buy-now d-flex justify-content-center align-items-center mx-1 add-to-cart">
+                                                            <i class="ion-ios-cart"></i>
                                                         </a>
                                                         <a href="#" class="heart d-flex justify-content-center align-items-center ">
                                                             <span><i class="ion-ios-heart"></i></span>

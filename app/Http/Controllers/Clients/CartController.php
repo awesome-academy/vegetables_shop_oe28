@@ -59,7 +59,7 @@ class CartController extends Controller
         return view('client.cart.list-cart');
     }
 
-    private function checkCart()
+    public function checkCart()
     {
         $oldCart = Session('Cart') ? Session('Cart') : null;
         $cart = new Cart($oldCart);
@@ -67,7 +67,7 @@ class CartController extends Controller
         return $cart;
     }
 
-    private function putToSession(Request $request, $cart)
+    public function putToSession(Request $request, $cart)
     {
         if (count($cart->products) > 0) {
             $request->session()->put('Cart', $cart);
