@@ -36,4 +36,6 @@ return [
     'cancel' => 'Hủy',
     'image' => 'Ảnh',
     'list_post' => 'Danh sách bài viết',
+    'login_admin' => 'Login Admin',
+    'sign_in' => 'Sign in',
 ];

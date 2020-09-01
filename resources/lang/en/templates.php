@@ -36,4 +36,6 @@ return [
     'cancel' => 'Cancel',
     'image' => 'Image',
     'list_post' => 'List post',
+    'login_admin' => 'Login Admin',
+    'sign_in' => 'Sign in',
 ];
