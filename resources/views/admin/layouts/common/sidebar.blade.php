@@ -51,13 +51,12 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{ route('roles.index') }}">{{ trans('templates.roles') }}</a>
-                <a class="collapse-item" href="register.html">{{ trans('messages.register') }}</a>
-                <a class="collapse-item" href="forgot-password.html">{{ trans('messages.forgot_password') }}</a>
-                <div class="collapse-divider"></div>
-                <h6 class="collapse-header">{{ trans('messages.other_pages') }}:</h6>
-                <a class="collapse-item" href="404.html">{{ trans('404_page') }}</a>
-                <a class="collapse-item" href="blank.html">{{ trans('messages.blank_page') }}</a>
+                <a class="collapse-item" href="{{ route('roles.index') }}">
+                    {{ trans('templates.roles') }}
+                </a>
+                <a class="collapse-item" href="{{ route('import-bills.index') }}">
+                    {{ trans('templates.import_bill') }}
+                </a>
             </div>
         </div>
     </li>

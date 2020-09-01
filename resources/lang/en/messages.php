@@ -25,7 +25,7 @@ return [
     'email_unique' => 'Email exits!',
     'phone_required' => 'Please enter the phone!',
     'phone_unique' => 'Phone exits!',
-    'address_required' => 'Please enter the address!',
+    'address_required   ' => 'Please enter the address!',
     'image_error' => 'Please select image!',
     'whoops_something_went_wrong' => 'Whoops! Something went wrong!',
     'add_success' => 'Add successfully !',
@@ -45,6 +45,8 @@ return [
     'list_supliers' => 'List Supliers',
     'update_success' => 'Update successfully',
     'login_fail' => 'Email or password not exaclly',
-    'price_required' => 'Please enter the price!',
+    'price_require' => 'Please enter the price!',
     'product_not_found' => 'Product not found',
+    'error_required' => 'Please enter the field with (*)',
+    'import_date_require' => 'Please enter the import date',
 ];

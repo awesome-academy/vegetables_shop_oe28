@@ -30,7 +30,7 @@
     <script src="{{ asset('bower_components/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('bower_components/bower-package/js/demo/datatables-demo.js') }}"></script>
     <script src="{{ mix('js/custom.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     <script src="{{ mix('js/ckeditor.js') }}"></script>
+    <script src="{{ mix('js/style_admin.js') }}"></script>
     </body>
 </html>
