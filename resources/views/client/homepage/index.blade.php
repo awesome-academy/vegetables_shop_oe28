@@ -8,7 +8,7 @@
                 <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
                     <div class="media block-6 services mb-md-0 mb-4">
                         <div class="icon bg-color-1 active d-flex justify-content-center align-items-center mb-2">
-                            <img src="{{ asset(config('path-img.poly-1')) }}" alt="">
+                            <img src="{{ asset(config('path-img.poly-1')) }}">
                         </div>
                         <div class="media-body">
                             <h3 class="heading">{{ trans('clients.frship') }}</h3>
@@ -110,7 +110,7 @@
                 @foreach ($products as $product)
                     <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="product">
-                        <a href="#" class="img-prod">
+                        <a href="{{ route('client.product_detail', $product->id) }}" class="img-prod">
                             @php $image = $product->images->first() @endphp
                             <img class="img-fluid" src="{{ asset(config('path-img.img') . $image['image_path']) }}">
                             <div class="overlay"></div>

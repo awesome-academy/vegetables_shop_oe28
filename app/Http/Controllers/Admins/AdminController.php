@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admins;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminLoginRequest;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 

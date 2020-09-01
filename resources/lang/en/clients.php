@@ -65,4 +65,8 @@ return [
     'quantity' => 'Quantity',
     'delete' => 'Delete',
     'image' => 'Image',
+    'add_to_cart' => 'Add to cart',
+    'review' => 'Review',
+    'relate_product' => 'Related Product',
+    'available' => 'available',
 ];

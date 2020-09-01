@@ -64,4 +64,8 @@ return [
     'quantity' => 'Số lượng',
     'Delete' => 'Xóa',
     'image' => 'Ảnh',
+    'add_to_cart' => 'Thêm vào giỏ hàng',
+    'review' => 'Nhận xét',
+    'relate_product' => 'Sản phẩm liên quan',
+    'available' => 'có sẵn',
 ];
