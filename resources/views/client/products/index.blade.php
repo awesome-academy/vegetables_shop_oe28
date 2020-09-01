@@ -31,8 +31,7 @@
                                     <div class="product">
                                         <a href="#" class="img-prod">
                                             @php $image = $product->images->first() @endphp
-                                            <img class="img-fluid" src="{{ asset('img/'. $image['image_path']) }}"
-                                                 alt="Colorlib Template">
+                                            <img class="img-fluid" src="{{ asset(config('path-img.img'). $image['image_path']) }}">
                                             <div class="overlay"></div>
                                         </a>
                                         <div class="text py-3 pb-4 px-3 text-center">
@@ -41,10 +40,10 @@
                                                 <div class="pricing">
                                                     <p class="price">
                                                         @if (isset($product->price_discount))
-                                                            <span class="mr-2 price-dc">{{ $product->price }} đ</span>
+                                                            <span class="mr-2 price-dc">{{ number_format($product->price) }} {{ config('number-items.unit') }}/</span>
                                                         @endif
                                                         <span class="price-sale">
-                                                            {{ $product->price_discount ? $product->price_discount : $product->price }} đ
+                                                            {{ $product->price_discount ? number_format($product->price_discount) : number_format($product->price) }} {{ config('number-items.unit') }}/
                                                           </span>
                                                     </p>
                                                 </div>
@@ -82,8 +81,7 @@
                                         <div class="product">
                                             <a href="#" class="img-prod">
                                                 @php $image = $product->images->first() @endphp
-                                                <img class="img-fluid" src="{{ asset('img/'. $image['image_path']) }}"
-                                                     alt="Colorlib Template">
+                                                <img class="img-fluid" src="{{ asset(config('path-img.img'). $image['image_path']) }}">
                                                 <div class="overlay"></div>
                                             </a>
                                             <div class="text py-3 pb-4 px-3 text-center">
@@ -92,11 +90,11 @@
                                                     <div class="pricing">
                                                         <p class="price">
                                                             @if (isset($product->price_discount))
-                                                                <span class="mr-2 price-dc">{{ $product->price }} đ</span>
+                                                                <span class="mr-2 price-dc">{{ $product->price }} {{ config('number-items.unit') }}</span>
                                                             @endif
                                                             <span class="price-sale">
-                                                                {{ $product->price_discount ? $product->price_discount : $product->price }} đ
-                                                              </span>
+                                                                {{ $product->price_discount ? $product->price_discount : $product->price }} {{ config('number-items.unit') }}
+                                                            </span>
                                                         </p>
                                                     </div>
                                                 </div>

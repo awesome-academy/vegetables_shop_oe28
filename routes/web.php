@@ -45,4 +45,9 @@ Route::group(['namespace' => 'Clients'], function () {
     Route::get('product', 'ProductController@index')->name('client.all_product');
     Route::get('introduce', 'HomeController@introduce')->name('client.introduce');
     Route::get('delivery', 'HomeController@delivery')->name('client.delivery');
+    Route::get('add-to-cart/{id}', 'CartController@addToCart')->name('client.add_cart');
+    Route::get('delete-item-cart/{id}', 'CartController@deleteItemCart');
+    Route::get('view-cart', 'CartController@viewCart')->name('client.view_cart');
+    Route::get('delete-list-item-cart/{id}', 'CartController@deleteListItemCart');
+    Route::get('save-item-cart/{id}/{quantity}', 'CartController@saveListItemCart');
 });
