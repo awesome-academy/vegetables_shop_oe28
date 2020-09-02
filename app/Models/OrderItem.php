@@ -11,4 +11,9 @@ class OrderItem extends Model
         'product_id',
         'total_price',
     ];
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
 }
