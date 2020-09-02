@@ -60,7 +60,7 @@
                     <li>{{ trans('clients.total_number') }} <span>{{ @$cart->totalQty }}</span></li>
                     <li>{{ trans('clients.total_price') }} <span>{{ number_format(@$cart->totalPrice) }} {{ config('number-items.unit') }}</span></li>
                 </ul>
-                <a href="#" class="primary-btn">{{ trans('clients.checkout') }}</a>
+                <a href="{{ route('client.checkout') }}" class="primary-btn">{{ trans('clients.checkout') }}</a>
             </div>
         </div>
     </div>

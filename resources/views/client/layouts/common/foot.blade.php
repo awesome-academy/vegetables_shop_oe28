@@ -16,4 +16,5 @@
 <script src="{{ asset('bower_components/bower-package/js/main.js') }}"></script>
 <script src="{{ asset('bower_components/bower-package/js/kit-fontawesome.js') }}"></script>
 <script src="{{ asset('bower_components/AlertifyJS/build/alertify.min.js') }}"></script>
+<script src="{{ asset('bower_components/bower-package/js/districts.min.js') }}"></script>
 <script src="{{ mix('js/custom.js') }}"></script>

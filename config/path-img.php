@@ -16,4 +16,5 @@ return [
     'partner-4' => 'img/partner/head-way.jpeg',
     'default-posts' => 'img/default.jpg',
     'img' => 'img/',
+    'require_input' => '*',
 ];

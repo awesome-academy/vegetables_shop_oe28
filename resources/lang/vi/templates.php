@@ -50,4 +50,8 @@ return [
     'weight' => 'Khối lượng nhập',
     'outdate' => 'Ngày hết hạn',
     'item_1' => 'Sản phẩm 1',
+    'number' => 'Số lượng',
+    'total_price' => 'Tổng tiền',
+    'subtotal' => 'Thành tiền',
+    'sub_price' => 'Đơn giá',
 ];

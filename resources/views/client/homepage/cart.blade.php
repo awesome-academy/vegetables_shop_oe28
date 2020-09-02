@@ -35,7 +35,7 @@
             <a class="col-md-5 btn btn-warning"
                href="{{ route('client.view_cart') }}">{{ trans('clients.view_cart') }}</a>
             <a class="col-md-5 btn btn-success btn-pay"
-               href="/checkout">{{ trans('clients.pay') }}</a>
+               href="{{ route('client.checkout') }}">{{ trans('clients.pay') }}</a>
         </div>
     </div>
 @else
