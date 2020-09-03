@@ -53,4 +53,6 @@ Route::group(['namespace' => 'Clients'], function () {
     Route::get('save-item-cart/{id}/{quantity}', 'CartController@saveListItemCart');
     Route::get('product-detail/{id}', 'ProductController@detailProduct')->name('client.product_detail');
     Route::get('product-detail/add-to-cart/{id}', 'CartController@addToCart')->name('client.add_cart');
+    Route::get('checkout', 'HomeController@getCheckout')->name('client.checkout');
+    Route::post('checkout', 'HomeController@postCheckout')->name('client.post_checkout');
 });

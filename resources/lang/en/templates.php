@@ -50,4 +50,8 @@ return [
     'weight' => 'Weight',
     'outdate' => 'Outdate',
     'item_1' => 'Item 1',
+    'number' => 'Number of items',
+    'total_price' => 'Total price',
+    'subtotal' => 'Subtotal',
+    'sub_price' => 'Subprice',
 ];

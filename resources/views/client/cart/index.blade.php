@@ -42,7 +42,10 @@
                                                         <span class="plus">+</span>
                                                     </div>
                                                 </td>
-                                                <td class="total">{{ number_format($product['price']) }} đ</td>
+                                                <td class="total">
+                                                    {{ number_format($product['price']) }}
+                                                    {{ config('number-items.unit') }}
+                                                </td>
                                                 <td>
                                                     <a class="btn btn-success update-number-item" data-id="{{ $product['productInfo']->id }}">{{ trans('clients.update') }}</a>
                                                 </td>
@@ -65,7 +68,7 @@
                                 <li>{{ trans('clients.total_number') }} <span>{{ @$cart->totalQty }}</span></li>
                                 <li>{{ trans('clients.total_price') }} <span>{{ number_format(@$cart->totalPrice) }} đ</span></li>
                             </ul>
-                            <a href="#" class="primary-btn">{{ trans('clients.checkout') }}</a>
+                            <a href="{{ route('client.checkout') }}" class="primary-btn">{{ trans('clients.checkout') }}</a>
                         </div>
                     </div>
                 </div>
