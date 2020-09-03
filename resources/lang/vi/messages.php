@@ -47,4 +47,6 @@ return [
     'login_fail' => 'Email hoặc password không chính xác',
     'price_required' => 'Vui lòng nhập giá tiền!',
     'product_not_found' => 'Không tìm thấy sản phẩm',
+    'error_required' => 'Vui lòng nhập vào các trường có dấu (*)',
+    'import_date_require' => 'Vui lòng điền ngày nhập hàng',
 ];

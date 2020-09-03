@@ -494,3 +494,19 @@ img.product__details__pic__item--large {
 input#quantity {
     margin-top: 5px;
 }
+.form-group.col-md-4 {
+    display: flex;
+    align-items: center;
+}
+.form-sl-p {
+    float: left;
+}
+.add-new-item-product.container {
+    height: 342px;
+}
+.container.detail-import-bill {
+    width: 60%;
+}
+.required-input {
+    color: #ff0000;
+}
