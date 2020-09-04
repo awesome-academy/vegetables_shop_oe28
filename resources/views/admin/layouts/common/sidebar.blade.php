@@ -37,8 +37,7 @@
                 <a class="collapse-item" href="{{ route('supliers.index') }}">{{ trans('messages.suplier') }}</a>
                 <a class="collapse-item" href="{{ route('users.index') }}">{{ trans('templates.users') }}</a>
                 <a class="collapse-item" href="{{ route('categories.index') }}">{{ trans('templates.categories') }}</a>
-                <a class="collapse-item" href="utilities-animation.html">{{ trans('messages.animations') }}</a>
-                <a class="collapse-item" href="utilities-other.html">{{ trans('messages.other') }}</a>
+                <a class="collapse-item" href="{{ route('orders.index') }}">{{ trans('templates.order') }}</a>
             </div>
         </div>
     </li>

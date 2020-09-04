@@ -36,6 +36,7 @@ Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin', 'namespace' => 'Ad
     Route::resource('categories', 'CategoryController');
     Route::resource('roles', 'RoleController');
     Route::resource('posts', 'PostController');
+    Route::resource('orders', 'OrderController');
     Route::resource('import-bills', 'ImportBillController');
 });
 

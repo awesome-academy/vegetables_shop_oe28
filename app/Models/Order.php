@@ -17,4 +17,9 @@ class Order extends Model
         'phone',
         'email',
     ];
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
 }
