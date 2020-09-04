@@ -42,13 +42,32 @@
                                 <tbody>
                                     <tr>
                                         <td>{{ trans('templates.status') }}</td>
-                                        <td>{{ $order->status }}</td>
-                                    </tr>
-                                </tbody>
-                                <tbody>
-                                    <tr>
-                                        <td>{{ trans('templates.order_date') }}</td>
-                                        <td>{{ $order->updated_at }}</td>
+                                        <td>
+                                            <div class="container">
+                                                <form action="{{ route('orders.update', $order->id) }}" method="POST">
+                                                    @method('PATCH')
+                                                    @csrf
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <select class="form-control btn btn-warning" name="status">
+                                                                <option value="1" {{ $order->status == config('number-items.reject') ? 'selected' : "" }}>
+                                                                    {{ trans('templates.reject') }}
+                                                                </option>
+                                                                <option value="2" {{ $order->status == config('number-items.accept') ? 'selected' : "" }}>
+                                                                    {{ trans('templates.accept') }}
+                                                                </option>
+                                                                <option value="3" {{ $order->status == config('number-items.deliveried') ? 'selected' : "" }}>
+                                                                    {{ trans('templates.deliveried') }}
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col">
+                                                            <button class="btn btn-primary">{{ trans('templates.update') }}</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </td>
                                     </tr>
                                 </tbody>
                                 <tbody>
@@ -79,7 +98,7 @@
                                      @foreach ($products as $key => $product)
                                     <tr role="row">
                                         <th class="col-md-auto">
-                                            {{ $product->name . '(' . $product->weight_item . $product->unit . ')' }}
+                                            {{ $product->name . '(' . $product->weight_item . config('path-img.unit') . ')' }}
                                         </th>
                                         <th>
                                             @if (isset($product->price_discount))

@@ -13,7 +13,6 @@ class ImportBillProduct extends Model
         'weight',
         'import_price',
         'outdate',
-        'unit',
     ];
 
     public function product()

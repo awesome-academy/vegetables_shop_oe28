@@ -31,19 +31,35 @@
                                     <div class="product">
                                         <a href="{{ route('client.product_detail', $product->id) }}" class="img-prod">
                                             @php $image = $product->images->first() @endphp
-                                            <img class="img-fluid" src="{{ asset(config('path-img.img'). $image['image_path']) }}">
+                                            @if (isset($image))
+                                                <img class="img-fluid" src="{{ asset(config('path-img.img'). $image['image_path']) }}">
+                                            @else
+                                                <img class="img-fluid" src="{{ asset(config('path-img.default-posts')) }}">
+                                            @endif
                                             <div class="overlay"></div>
                                         </a>
                                         <div class="text py-3 pb-4 px-3 text-center">
                                             <h3><a href="#">{{ $product->name }}</a></h3>
+                                            <h3>
+                                                @if(isset($product->supplier->name))
+                                                    <a href="#">{{ trans('clients.supplier') . ": " . @$product->supplier->name }}</a>
+                                                @else
+                                                    <a href="#">{{ trans('clients.supplier') . ": " . trans('clients.other') }}</a>
+                                                @endif
+                                            </h3>
                                             <div class="d-flex">
                                                 <div class="pricing">
                                                     <p class="price">
                                                         @if (isset($product->price_discount))
-                                                            <span class="mr-2 price-dc">{{ number_format($product->price) }} {{ config('number-items.unit') }}/</span>
+                                                            <span class="mr-2 price-dc">
+                                                                {{ number_format($product->price) }}
+                                                                {{ config('number-items.unit') }}
+                                                            </span>
                                                         @endif
                                                         <span class="price-sale">
-                                                            {{ $product->price_discount ? number_format($product->price_discount) : number_format($product->price) }} {{ config('number-items.unit') }}/
+                                                            {{ $product->price_discount ? number_format($product->price_discount) : number_format($product->price) }}
+                                                            {{ config('number-items.unit') }}
+                                                            /{{ $product->weight_item }} {{ config('path-img.unit') }}
                                                           </span>
                                                     </p>
                                                 </div>
@@ -78,20 +94,35 @@
                                     <div class="col-md-6 col-lg-3 ftco-animate">
                                         <div class="product">
                                             <a href="{{ route('client.product_detail', $product->id) }}" class="img-prod">
-                                            @php $image = $product->images->first() @endphp
-                                                <img class="img-fluid" src="{{ asset(config('path-img.img'). $image['image_path']) }}">
+                                                @php $image = $product->images->first() @endphp
+                                                @if (isset($image))
+                                                    <img class="img-fluid" src="{{ asset(config('path-img.img'). $image['image_path']) }}">
+                                                @else
+                                                    <img class="img-fluid" src="{{ asset(config('path-img.default-posts')) }}">
+                                                @endif
                                                 <div class="overlay"></div>
                                             </a>
                                             <div class="text py-3 pb-4 px-3 text-center">
                                                 <h3><a href="#">{{ $product->name }}</a></h3>
+                                                <h3>
+                                                    @if(isset($product->supplier->name))
+                                                        <a href="#">{{ trans('clients.supplier') . ": " . @$product->supplier->name }}</a>
+                                                    @else
+                                                        <a href="#">{{ trans('clients.supplier') . ": " . trans('clients.other') }}</a>
+                                                    @endif
+                                                </h3>
                                                 <div class="d-flex">
                                                     <div class="pricing">
                                                         <p class="price">
                                                             @if (isset($product->price_discount))
-                                                                <span class="mr-2 price-dc">{{ $product->price }} {{ config('number-items.unit') }}</span>
+                                                                <span class="mr-2 price-dc">
+                                                                    {{ $product->price }} {{ config('number-items.unit') }}
+                                                                </span>
                                                             @endif
                                                             <span class="price-sale">
-                                                                {{ $product->price_discount ? $product->price_discount : $product->price }} {{ config('number-items.unit') }}
+                                                                {{ $product->price_discount ? $product->price_discount : $product->price }}
+                                                                {{ config('number-items.unit') }}
+                                                                /{{ $product->weight_item }}{{ config('path-img.unit') }}
                                                             </span>
                                                         </p>
                                                     </div>

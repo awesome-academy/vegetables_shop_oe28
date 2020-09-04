@@ -17,6 +17,7 @@ class OrderRequest extends FormRequest
             'name' => 'required',
             'address' => 'required',
             'phone' => 'required',
+            'payment_method' => 'required',
         ];
     }
 
@@ -26,6 +27,7 @@ class OrderRequest extends FormRequest
             'name.required' => trans('messages.name_required'),
             'address.required' => trans('messages.address_required'),
             'phone.required' => trans('messages.phone_required'),
+            'payment_method.required' => trans('messages.payment_method_required'),
         ];
     }
 }

@@ -29,7 +29,7 @@
                                                     <img class="img-recent" src="{{ asset(config('path-img.img') . $img['image_path']) }}">
                                                 </td>
                                                 <td class="product-name">
-                                                    <h3>{{ $product['productInfo']->name . '(' . $product['productInfo']->weight_item . $product['productInfo']->unit . ')' }}</h3>
+                                                    <h3>{{ $product['productInfo']->name . '(' . $product['productInfo']->weight_item . config('path-img.unit') . ')' }}</h3>
                                                 </td>
                                                 <td class="price">
                                                     {{ $product['productInfo']->price_discount ? number_format($product['productInfo']->price_discount) : number_format($product['productInfo']->price)  }}

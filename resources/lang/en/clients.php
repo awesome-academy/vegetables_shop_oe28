@@ -97,4 +97,8 @@ return [
     'other' => 'others',
     'logout' => 'Logout',
     'profile' => 'Profile',
+    'out_stock' => 'Out of stock',
+    'rate' => 'Rate',
+    'submit' => 'Send',
+    'comment' => 'Comment'
 ];

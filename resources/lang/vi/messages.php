@@ -7,7 +7,7 @@ return [
     'manage_product' => 'Sản phẩm',
     'manage_post' => 'Bài viết',
     'suplier' => 'Nhà cung cấp',
-    'manage' => 'Quản lý',
+    'manage' => 'Quản lý trang admin',
     'name' => 'Tên',
     'address' => 'Địa chỉ',
     'email' => 'Email',
@@ -56,4 +56,6 @@ return [
     'logout_success' => 'Đăng xuất thành công',
     'login_success' => 'Đăng nhập thành công',
     'update_profile_success' => 'Cập nhật hồ sơ thành công',
+    'weight_item_required' => 'Vui lòng nhập cân nặng cho mỗi hàng hóa',
+    'review_success' => 'Gửi đánh giá thành công',
 ];

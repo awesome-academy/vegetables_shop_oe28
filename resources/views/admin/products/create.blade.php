@@ -13,7 +13,7 @@
             @csrf
             <div class="form-group">
                 <label>{{ trans('templates.name') }}:</label>
-                <input type="text" class="form-control" name="name">
+                <input type="text" class="form-control" name="name" value="{{ old('name') }}">
             </div>
             <div class="form-group">
                 <label>{{ trans('templates.category') }}:</label>
@@ -33,11 +33,15 @@
             </div>
             <div class="form-group">
                 <label>{{ trans('templates.price') }}:</label>
-                <input type="text" class="form-control" name="price">
+                <input type="text" class="form-control" name="price" value="{{ old('price') }}">
             </div>
             <div class="form-group">
                 <label>{{ trans('templates.price_discount') }}:</label>
-                <input type="text" class="form-control" name="price_discount">
+                <input type="text" class="form-control" name="price_discount" value="{{ old('price_discount') }}">
+            </div>
+            <div class="form-group">
+                <label>{{ trans('templates.weight_item') }}:</label>
+                <input type="text" class="form-control" name="weight_item" value="{{ old('weight_item') }}">
             </div>
             <div class="form-group">
                 <label>{{ trans('templates.select_image') }}:</label> <br>
