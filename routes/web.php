@@ -45,6 +45,13 @@ Route::group(['namespace' => 'Clients'], function () {
     Route::get('/', 'HomeController@index')->name('client.homepage');
     Route::get('post', 'PostController@index')->name('client.post_index');
     Route::get('product', 'ProductController@index')->name('client.all_product');
+    Route::get('register', 'UserController@register')->name('client.register');
+    Route::post('register', 'UserController@postRegister')->name('client.post_register');
+    Route::get('login', 'UserController@getLogin')->name('client.get_login');
+    Route::post('login', 'UserController@postLogin')->name('client.post_login');
+    Route::get('logout', 'UserController@getLogout')->name('client.get_logout');
+    Route::get('profile', 'UserController@getProfile')->name('client.get_profile');
+    Route::post('profile', 'UserController@postProfile')->name('client.post_profile');
     Route::get('introduce', 'HomeController@introduce')->name('client.introduce');
     Route::get('delivery', 'HomeController@delivery')->name('client.delivery');
     Route::get('add-to-cart/{id}', 'CartController@addToCart')->name('client.add_cart');

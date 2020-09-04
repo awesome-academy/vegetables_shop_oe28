@@ -90,14 +90,25 @@
                     <a href="#" class="nav-link">
                         <i class='fas fa-user-alt'></i>
                     </a>
-                    <ul class="reg-log">
-                        <li>
-                            <a href="#">{{ trans('clients.register') }}</a>
-                        </li>
-                        <li>
-                            <a href="#">{{ trans('clients.login') }}</a>
-                        </li>
-                    </ul>
+                    @if (Auth::check())
+                        <ul class="reg-log">
+                            <li>
+                                <a href="{{ route('client.get_profile') }}">{{ trans('clients.profile') }}</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('client.get_logout') }}">{{ trans('clients.logout') }}</a>
+                            </li>
+                        </ul>
+                    @else
+                        <ul class="reg-log">
+                            <li>
+                                <a href="{{ route('client.register') }}">{{ trans('clients.register') }}</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('client.get_login') }}">{{ trans('clients.login') }}</a>
+                            </li>
+                        </ul>
+                    @endif
                 </li>
                 <li class="nav-item">
                     @php $locale = session()->get('locale') @endphp
