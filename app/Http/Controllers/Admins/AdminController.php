@@ -4,6 +4,12 @@ namespace App\Http\Controllers\Admins;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminLoginRequest;
+use App\Models\Category;
+use App\Models\ImportBill;
+use App\Models\Order;
+use App\Models\Post;
+use App\Models\Product;
+use App\Models\Supplier;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -11,7 +17,13 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard');
+        $c_product = Product::count();
+        $c_post = Post::count();
+        $c_supplier = Supplier::count();
+        $c_category = Category::count();
+        $c_order = Order::count();
+        $c_importBill = ImportBill::count();
+        return view('admin.dashboard', compact(['c_product', 'c_post', 'c_supplier', 'c_category', 'c_order', 'c_importBill']));
     }
 
     public function switchLanguage($locale)

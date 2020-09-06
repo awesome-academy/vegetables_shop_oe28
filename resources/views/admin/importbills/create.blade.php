@@ -54,12 +54,10 @@
                         </div>
                         <div class="form-group col-md-12">
                             <div class="col-md-6 form-sl-p">
-                                <label class="col-md-12">{{ trans('templates.weight') }}: <span class="required-input">(*)</span></label>
+                                <label class="col-md-12">{{ trans('templates.weight') . '(' . config('path-img.unit') . ')' }} :
+                                    <span class="required-input">(*)</span>
+                                </label>
                                 <input type="text" class="form-control col-md-12" name="weight[]">
-                            </div>
-                            <div class="col-md-6 form-sl-p">
-                                <label class="col-md-12">{{ trans('templates.unit') }}: <span class="required-input">(*)</span></label>
-                                <input type="text" class="form-control col-md-12" name="unit[]">
                             </div>
                         </div>
                     </div>

@@ -97,4 +97,8 @@ return [
     'other' => 'Khác',
     'logout' => 'Đăng xuất',
     'profile' => 'Hồ sơ',
+    'out_stock' => 'Hết hàng',
+    'rate' => 'Đánh giá',
+    'submit' => 'Gửi',
+    'comment' => 'Nhận xét'
 ];

@@ -11,7 +11,7 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $orders = Order::all();
+        $orders = Order::orderBy('updated_at', 'desc')->get();
 
         return view('admin.orders.index', compact('orders'));
     }
@@ -54,7 +54,25 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Order::where('id', $id)->update(['status' => $request->status]);
+        $order = Order::findOrFail($id);
+        $orderItems = $order->orderItems;
+        if (isset($product_id)) {
+            $products = Product::whereIn('id', $product_id)->get();
+        }
+        if ($order->status == config('number-items.deliveried')) {
+            foreach ($orderItems as $orderItem) {
+                $weight = (float) $orderItem->weight;
+                $product = Product::where('id', $orderItem['product_id'])->first();
+                $weight_available = (float) $product->weight_available;
+                Product::where('id', $orderItem['product_id'])->update([
+                    'weight_available' => (float) $weight_available - $weight,
+                ]);
+                $product_id [] = $orderItem['product_id'];
+            }
+        }
+
+        return redirect()->back();
     }
 
     /**

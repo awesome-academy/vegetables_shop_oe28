@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -41,20 +42,38 @@ class HomeController extends Controller
             $cart = Session::get('Cart');
         }
         if (isset($cart)) {
-            $order = Order::create([
-                'name' => $request->name,
-                'address' => $request->address . ', ' . $request->calc_shipping_provinces . ',' . $request->calc_shipping_district,
-                'phone' => $request->phone,
-                'payment_method' => $request->payment_method,
-                'email' => $request->email,
-                'note' => $request->note,
-                'price_order' => $cart->totalPrice,
-            ]);
+            if (Auth::check()) {
+                $order = Order::create([
+                    'name' => $request->name,
+                    'address' => $request->address,
+                    'phone' => $request->phone,
+                    'payment_method' => $request->payment_method,
+                    'email' => $request->email,
+                    'note' => $request->note,
+                    'price_order' => $cart->totalPrice,
+                    'user_id' => Auth::user()->id,
+                    'status' => config('number-items.accept'),
+                ]);
+            } else {
+                $order = Order::create([
+                    'name' => $request->name,
+                    'address' => $request->address,
+                    'phone' => $request->phone,
+                    'payment_method' => $request->payment_method,
+                    'email' => $request->email,
+                    'note' => $request->note,
+                    'price_order' => $cart->totalPrice,
+                    'status' => config('number-items.accept'),
+                ]);
+            }
             foreach ($cart->products as $product) {
+                $weight_item = str_replace(',', '.', $product['productInfo']->weight_item);
+                $weight = $product['quantity'] * (float) $weight_item;
                 OrderItem::create([
                     'order_id' => $order->id,
                     'product_id' => $product['productInfo']->id,
                     'total_price' => $product['price'],
+                    'weight' => $weight,
                 ]);
             }
             Session::forget('Cart');
