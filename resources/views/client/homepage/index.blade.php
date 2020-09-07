@@ -134,7 +134,7 @@
                                         @endif
                                         <span class="price-sale">
                                             {{ $product->price_discount ? number_format($product->price_discount) : number_format($product->price) }}
-                                            đ/{{ $product->weight_item . $product->unit }}
+                                            đ/{{ $product->weight_item . config('path-img.unit') }}
                                         </span>
                                     </p>
                                 </div>
@@ -146,7 +146,11 @@
                                         <i class="ion-ios-cart"></i>
                                     </a>
                                     <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                                        <span><i class="ion-ios-heart"></i></span>
+                                        <div class="click">
+                                            <span class="fa fa-heart"></span>
+                                            <div class="ring"></div>
+                                            <div class="ring2"></div>
+                                        </div>
                                     </a>
                                 </div>
                             </div>

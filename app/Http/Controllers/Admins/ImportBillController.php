@@ -8,6 +8,7 @@ use App\Models\ImportBill;
 use App\Models\Product;
 use App\Models\ImportBillProduct;
 use App\Models\Supplier;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class ImportBillController extends Controller
@@ -30,20 +31,32 @@ class ImportBillController extends Controller
     public function store(StoreImportBillRequest $request)
     {
         if (!isset($request->product_id[0]) || !isset($request->weight[0]) || !isset($request->import_price[0])
-            || !isset($request->outdate[0]) || !isset($request->unit[0])) {
+            || !isset($request->outdate[0])) {
+
             return redirect()->back()->withInput()->with('error_required', trans('messages.error_required'));
         }
         $importBill = ImportBill::create($request->all());
         $outdates = $request->outdate;
+
         foreach ($outdates as $key => $outdate) {
             ImportBillProduct::create([
                 'import_bill_id' => $importBill->id,
                 'product_id' => $request->product_id[$key],
                 'weight' => $request->weight[$key],
                 'import_price' => $request->import_price[$key],
-                'unit' => $request->unit[$key],
                 'outdate' => $outdate,
             ]);
+            $product = Product::findOrFail($request->product_id[$key]);
+            $weight_available = (float) str_replace(',', '.', $product->weight_available);
+            $dateNow = Carbon::now()->toDateTimeString();
+
+            if ($dateNow <= $outdate) {
+                $weight_available += (float) str_replace(',', '.', $request->weight[$key]);
+                Product::where('id', $request->product_id[$key])->update(['weight_available' => $weight_available]);
+            } elseif ($dateNow > $outdate) {
+                $weight_available = 0;
+                Product::where('id', $request->product_id[$key])->update(['weight_available' => $weight_available]);
+            }
         }
 
         return redirect()->route('import-bills.index')->with('success', trans('messages.add_success'));
@@ -65,6 +78,7 @@ class ImportBillController extends Controller
         try {
             $importBill = ImportBill::findOrFail($id);
         } catch (ModelNotFoundException $exception) {
+
             return back()->withErrors($exception->getMessage())->withInput();
         }
         $suppliers = Supplier::all();
@@ -77,6 +91,7 @@ class ImportBillController extends Controller
         try {
             $importBill = ImportBill::findOrFail($id);
         } catch (ModelNotFoundException $exception) {
+
             return back()->withErrors($exception->getMessage())->withInput();
         }
         $importBill->update($request->all());
@@ -89,6 +104,7 @@ class ImportBillController extends Controller
         try {
             $importBill = ImportBill::findOrFail($id);
         } catch (ModelNotFoundException $exception) {
+
             return back()->withErrors($exception->getMessage())->withInput();
         }
         $importBill->delete();
