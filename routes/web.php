@@ -63,4 +63,6 @@ Route::group(['namespace' => 'Clients'], function () {
     Route::get('product-detail/add-to-cart/{id}', 'CartController@addToCart')->name('client.add_cart');
     Route::get('checkout', 'HomeController@getCheckout')->name('client.checkout');
     Route::post('checkout', 'HomeController@postCheckout')->name('client.post_checkout');
+    Route::post('register-news', 'UserController@registerNews')->name('client.register_new');
+    Route::post('rate', 'ProductController@rate')->name('client.rate');
 });
