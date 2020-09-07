@@ -15,12 +15,109 @@
                 <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    {{ trans('messages.earning') }}
+                            <a href="{{ route('products.index') }}">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        {{ trans('templates.manage_product') }}
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $countProduct }}</div>
                                 </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ trans('messages.price') }}</div>
+                            </a>
+                            <div class="col-auto">
+                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <a href="{{ route('posts.index') }}">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        {{ trans('templates.manage_post') }}
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $countPost }}</div>
+                                </div>
+                            </a>
+                            <div class="col-auto">
+                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-info shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <a href="{{ route('supliers.index') }}">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        {{ trans('templates.supplier') }}
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $countSupplier }}</div>
+                                </div>
+                            </a>
+                            <div class="col-auto">
+                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-warning shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <a href="{{ route('categories.index') }}">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        {{ trans('templates.category') }}
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $countCategory }}</div>
+                                </div>
+                            </a>
+                            <div class="col-auto">
+                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <a href="{{ route('orders.index') }}">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        {{ trans('templates.order') }}
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $countOrder }}</div>
+                                </div>
+                            </a>
+                            <div class="col-auto">
+                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <a href="{{ route('import-bills.index') }}">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        {{ trans('templates.import_bill') }}
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $countImportBill }}</div>
+                                </div>
+                            </a>
                             <div class="col-auto">
                                 <i class="fas fa-calendar fa-2x text-gray-300"></i>
                             </div>

@@ -45,6 +45,14 @@
                 <input type="text" class="form-control" name="price_discount" value="{{ $product->price_discount }}">
             </div>
             <div class="form-group">
+                <label>{{ trans('templates.weight_available') }}:</label>
+                <input type="text" class="form-control" name="weight_available" value="{{ $product->weight_available }}">
+            </div>
+            <div class="form-group">
+                <label>{{ trans('templates.weight_item') }}:</label>
+                <input type="text" class="form-control" name="weight_item" value="{{ $product->weight_item }}">
+            </div>
+            <div class="form-group">
                 <label>{{ trans('templates.select_image') }}:</label> <br>
                 <input type="file" class="form-control" multiple id="gallery-photo-add" name="image_path[]"> <br>
                 <div class="gallery"></div>
