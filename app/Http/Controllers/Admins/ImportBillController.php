@@ -47,15 +47,15 @@ class ImportBillController extends Controller
                 'outdate' => $outdate,
             ]);
             $product = Product::findOrFail($request->product_id[$key]);
-            $weight_available = (float) str_replace(',', '.', $product->weight_available);
+            $weightAvailable = (float) str_replace(',', '.', $product->weight_available);
             $dateNow = Carbon::now()->toDateTimeString();
 
             if ($dateNow <= $outdate) {
-                $weight_available += (float) str_replace(',', '.', $request->weight[$key]);
-                Product::where('id', $request->product_id[$key])->update(['weight_available' => $weight_available]);
+                $weightAvailable += (float) str_replace(',', '.', $request->weight[$key]);
+                Product::where('id', $request->product_id[$key])->update(['weight_available' => $weightAvailable]);
             } elseif ($dateNow > $outdate) {
-                $weight_available = 0;
-                Product::where('id', $request->product_id[$key])->update(['weight_available' => $weight_available]);
+                $weightAvailable = 0;
+                Product::where('id', $request->product_id[$key])->update(['weight_available' => $weightAvailable]);
             }
         }
 
@@ -67,6 +67,7 @@ class ImportBillController extends Controller
         try {
             $importBill = ImportBill::findOrFail($id);
         } catch (ModelNotFoundException $exception) {
+
             return back()->withErrors($exception->getMessage())->withInput();
         }
 

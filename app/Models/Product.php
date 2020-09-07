@@ -14,7 +14,8 @@ class Product extends Model
         'price',
         'price_discount',
         'description',
-        'weight',
+        'weight_item',
+        'weight_available',
     ];
 
     public function supplier()

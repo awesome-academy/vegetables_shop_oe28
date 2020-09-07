@@ -28,6 +28,7 @@ class StoreProductRequest extends FormRequest
             'category_id' => 'required',
             'suplier_id' => 'required',
             'price' => 'required',
+            'weight_item' => 'required',
         ];
     }
 
@@ -38,6 +39,7 @@ class StoreProductRequest extends FormRequest
             'category_id.required' => trans('messages.category_required'),
             'suplier_id.required' => trans('messages.suplier_required'),
             'price.required' => trans('messages.price_required'),
+            'weight_item.required' => trans('messages.weight_item_required'),
         ];
     }
 }
