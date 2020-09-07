@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Clients;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterClientRequest;
+use App\Http\Requests\RegisterNewsRequest;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Models\Product;
 use App\Models\User;
@@ -91,5 +92,12 @@ class UserController extends Controller
         ]);
 
         return redirect()->back()->with('success', trans('messages.update_profile_success'));
+    }
+
+    public function registerNews(RegisterNewsRequest $request)
+    {
+        User::create(['email' => $request->email]);
+
+        return redirect()->back()->with('success', trans('messages.register_success'));
     }
 }

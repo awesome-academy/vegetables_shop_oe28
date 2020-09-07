@@ -64,6 +64,6 @@
         </div>
     </div>
 
-    @include('client.layouts.common.section_register')
+    @include('client.layouts.common.section')
 
 @endsection

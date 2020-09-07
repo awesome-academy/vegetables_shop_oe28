@@ -1,3 +1,24 @@
+<div class="py-1 bg-primary">
+    <div class="container">
+        <div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
+            <div class="col-lg-12 d-block">
+                <div class="row d-flex">
+                    <div class="col-md pr-4 d-flex topper align-items-center">
+                        <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
+                        <span class="text">{{ config('foot.phone') }}</span>
+                    </div>
+                    <div class="col-md pr-4 d-flex topper align-items-center">
+                        <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
+                        <span class="text">{{ config('foot.email') }}</span>
+                    </div>
+                    <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
+                        <span class="text">{{ config('foot.free_ship') }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
         @if (session()->has('success'))
@@ -12,8 +33,8 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="{{ route('client.homepage') }}" class="nav-link">{{ trans('clients.home') }}</a></li>
-                <li class="nav-item user-regis-pa">
+                <li class="nav-item"><a href="{{ route('client.homepage') }}" class="nav-link active">{{ trans('clients.home') }}</a></li>
+                <li class="nav-item">
                     <a href="{{ route('client.all_product') }}" class="nav-link">
                         {{ trans('clients.product') }}
                     </a>
@@ -21,10 +42,18 @@
                 <li class="nav-item"><a href="{{ route('client.post_index') }}" class="nav-link">{{ trans('clients.news') }}</a></li>
                 <li class="nav-item"><a href="{{ route('client.introduce') }}" class="nav-link">{{ trans('clients.introduce') }}</a></li>
                 <li class="nav-item"><a href="{{ route('client.delivery') }}" class="nav-link">{{ trans('clients.delivery_regulations') }}</a></li>
+                <li class="nav-item">
+                    <a href="{{ route('client.delivery') }}" class="nav-link">
+                        <span class="fa fa-heart"></span>
+                        <sup>1</sup>
+                    </a>
+                </li>
                 <li class="nav-item nav-cart">
                     @if (!empty(Session::has('Cart')))
                         <a href="#" class="nav-link">
-                            <i class='fa fa-shopping-cart'><sup id="total-qty-show">{{ Session::get('Cart')->totalQty }}</sup></i>
+                            <i class='fa fa-shopping-cart'>
+                                <sup id="total-qty-show">{{ Session::get('Cart')->totalQty }}</sup>
+                            </i>
                         </a>
                     @else
                         <a href="#" class="nav-link">
