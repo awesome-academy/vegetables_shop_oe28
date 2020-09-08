@@ -9,7 +9,14 @@
                         <div class="cart-list">
                             <table class="table">
                                 <thead class="thead-primary">
-                                    <tr class="text-center">
+                                @if (Session::has('error'))
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            <li>{!! Session::get('error') !!}</li>
+                                        </ul>
+                                    </div>
+                                @endif
+                                <tr class="text-center">
                                         <th>{{ trans('clients.image') }}</th>
                                         <th>{{ trans('clients.product_name') }}</th>
                                         <th>{{ trans('clients.price') }}</th>
@@ -51,6 +58,8 @@
                                                 </td>
                                                 <td class="product-remove"  >
                                                     <input type="button" class="product-remove-item" data-id="{{ $product['productInfo']->id }}" value="X" />
+                                                    <input type="hidden" id="limitItem-{{ $product['productInfo']->id }}" data-id="{{ $product['productInfo']->id }}"
+                                                        value="{{ floor($product['productInfo']->weight_available / (float) str_replace(',', '.', $product['productInfo']->weight_item)) }}" />
                                                 </td>
                                             </tr>
                                         @endforeach

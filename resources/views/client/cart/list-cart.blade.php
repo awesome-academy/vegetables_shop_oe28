@@ -24,7 +24,9 @@
                                     <img class="img-recent" src="{{ asset(config('path-img.img') . $img['image_path']) }}">
                                 </td>
                                 <td class="product-name">
-                                    <h3>{{ $product['productInfo']->name . '(' . $product['productInfo']->weight_item . config('path-img.unit') . ')' }}</h3>
+                                    <h3 class="weight_item" value="{{ $product['productInfo']->weight_item }}">
+                                        {{ $product['productInfo']->name . '(' . $product['productInfo']->weight_item . config('path-img.unit') . ')' }}
+                                    </h3>
                                 </td>
                                 <td class="price">
                                     {{ $product['productInfo']->price_discount ? number_format($product['productInfo']->price_discount) : number_format($product['productInfo']->price)  }}
@@ -36,6 +38,10 @@
                                             value="{{ $product['quantity'] }}"/>
                                         <span class="plus">+</span>
                                     </div>
+                                </td>
+                                <td>
+                                    <input type="hidden" id="limitItem-{{ $product['productInfo']->id }}" data-id="{{ $product['productInfo']->id }}"
+                                        value="{{ floor($product['productInfo']->weight_available / (float) str_replace(',', '.', $product['productInfo']->weight_item)) }}" />
                                 </td>
                                 <td class="total">{{ number_format($product['price']) }} {{ config('number-items.unit') }}</td>
                                 <td>
@@ -60,7 +66,7 @@
                     <li>{{ trans('clients.total_number') }} <span>{{ @$cart->totalQty }}</span></li>
                     <li>{{ trans('clients.total_price') }} <span>{{ number_format(@$cart->totalPrice) }} {{ config('number-items.unit') }}</span></li>
                 </ul>
-                <a href="{{ route('client.checkout') }}" class="primary-btn">{{ trans('clients.checkout') }}</a>
+                <a href="{{ route('client.checkout') }}" class="primary-btn" id="checkout-list">{{ trans('clients.checkout') }}</a>
             </div>
         </div>
     </div>

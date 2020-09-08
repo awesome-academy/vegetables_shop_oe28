@@ -7,7 +7,7 @@
     </a>
     <hr class="sidebar-divider my-0">
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>{{ trans('messages.dashboard') }}</span>
         </a>
@@ -23,19 +23,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="{{ route('products.index') }}">{{ trans('messages.manage_product') }}</a>
                 <a class="collapse-item" href="{{ route('posts.index') }}">{{ trans('templates.manage_post') }}</a>
-            </div>
-        </div>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-            aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
-            <span>{{ trans('messages.manage') }}</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="{{ route('supliers.index') }}">{{ trans('messages.suplier') }}</a>
-                <a class="collapse-item" href="{{ route('users.index') }}">{{ trans('templates.users') }}</a>
                 <a class="collapse-item" href="{{ route('categories.index') }}">{{ trans('templates.categories') }}</a>
                 <a class="collapse-item" href="{{ route('orders.index') }}">{{ trans('templates.order') }}</a>
             </div>

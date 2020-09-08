@@ -22,9 +22,9 @@
                                 <th>{{ trans('templates.name') }}</th>
                                 <th>{{ trans('templates.category') }}</th>
                                 <th>{{ trans('templates.supplier') }}</th>
-                                <th>{{ trans('templates.price') }} (đ)</th>
-                                <th>{{ trans('templates.price_discount') }} (đ)</th>
-                                <th>{{ trans('templates.weight_available') }} (kg)</th>
+                                <th>{{ trans('templates.price') }}</th>
+                                <th>{{ trans('templates.price_discount') }}</th>
+                                <th>{{ trans('templates.weight_available') }}</th>
                                 <th>{{ trans('templates.edit') }}</th>
                                 <th>{{ trans('templates.delete') }}</th>
                             </tr>
@@ -39,7 +39,9 @@
                                         <img class="img-show" src="{{ asset('img/'. $image['image_path']) }}">
                                     @endif
                                 </td>
-                                <td>{{ $product->name }}</td>
+                                <td>
+                                    {{ $product->name . '(' . $product->weight_item . config('path-img.unit') . ')' }}
+                                </td>
                                 <td>
                                     <a href="{{ route('categories.edit', @$product->category_id) }}">
                                         {{ @$product->category->name }}

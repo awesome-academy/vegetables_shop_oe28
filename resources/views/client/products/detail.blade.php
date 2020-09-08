@@ -40,15 +40,27 @@
                             /{{ $product->weight_item . config('path-img.unit') }}
                         </div>
                         <p>{{ $product->description }}</p>
-                        @if ($product->weight_available == config('number-items.zero'))
+                        @if ($product->weight_available <= config('number-items.zero'))
                             <div class="w-100 out-stock">{{ trans('clients.out_stock') }}</div>
+                        @else
+                            <div class="col-md-12">
+                                <p class="weight_available">{{ $product->weight_available . " " . config('path-img.unit') . " " . trans('clients.available') }}</p>
+                            </div>
                         @endif
                     </div>
-                    <p>
-                        <a href="javascript:" id="{{ $product->id }}" class="btn btn-black py-3 px-5 add-to-cart">
-                            {{ trans('clients.add_to_cart') }}
-                        </a>
-                    </p>
+                    @if ($product->weight_available > config('number-items.zero'))
+                        <p>
+                            <a href="javascript:" id="{{ $product->id }}" class="btn btn-black py-3 px-5 add-to-cart">
+                                {{ trans('clients.add_to_cart') }}
+                            </a>
+                        </p>
+                    @else
+                        <p>
+                            <a href="javascript:" id="{{ $product->id }}" class="btn btn-black py-3 px-5 disabled">
+                                {{ trans('clients.add_to_cart') }}
+                            </a>
+                        </p>
+                    @endif
                 </div>
             </div>
             <label class="review-product">{{ trans('clients.review') }}</label>
@@ -125,10 +137,17 @@
                                 </div>
                                 <div class="bottom-area d-flex px-3">
                                     <div class="m-auto d-flex">
-                                        <a href="javascript:" id="{{ $relate->id }}"
-                                            class="buy-now d-flex justify-content-center align-items-center mx-1 add-to-cart">
-                                            <span><i class="ion-ios-cart"></i></span>
-                                        </a>
+                                        @if ($relate->weight_available > 0)
+                                            <a href="javascript:" id="{{ $relate->id }}"
+                                                class="buy-now d-flex justify-content-center align-items-center mx-1 add-to-cart">
+                                                <span><i class="ion-ios-cart"></i></span>
+                                            </a>
+                                        @else
+                                            <a href="javascript:" id="{{ $relate->id }}"
+                                               class="buy-now d-flex justify-content-center align-items-center mx-1 disabled">
+                                                <span><i class="ion-ios-cart"></i></span>
+                                            </a>
+                                        @endif
                                         <a href="#" class="heart d-flex justify-content-center align-items-center ">
                                             <span><i class="ion-ios-heart"></i></span>
                                         </a>

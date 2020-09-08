@@ -33,6 +33,19 @@ class HomeController extends Controller
 
     public function getCheckout()
     {
+        if (!empty(Session::has('Cart'))) {
+            $cart = Session::get('Cart');
+        }
+        if (isset($cart)) {
+            $products = $cart->products;
+        }
+        foreach ($products as $product) {
+            $limitProduct = ((float) $product['productInfo']->weight_available / (float) str_replace(',', '.', $product['productInfo']->weight_item));
+            if ($product['quantity'] > $limitProduct) {
+                return redirect()->back()->with('error', trans('clients.can_buy') . ' ' . $limitProduct . ' ' . trans('clients.item') . ' ' . $product['productInfo']->name);
+            }
+        }
+
         return view('client.checkout.index');
     }
 

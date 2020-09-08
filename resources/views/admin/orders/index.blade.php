@@ -21,6 +21,7 @@
                                 <th>{{ trans('templates.name_client') }}</th>
                                 <th>{{ trans('templates.phone') }}</th>
                                 <th>{{ trans('templates.address') }}</th>
+                                <th>{{ trans('templates.order_date') }}</th>
                                 <th>{{ trans('templates.status') }}</th>
                                 <th>{{ trans('templates.detail') }}</th>
                                 <th>{{ trans('templates.delete') }}</th>
@@ -33,8 +34,15 @@
                                 <td>{{ $order->name }}</td>
                                 <td>{{ $order->phone }}</td>
                                 <td>{{ $order->address }}</td>
-                                <td>{{ $order->status }}</td>
-                                <td>
+                                <td>{{ $order->updated_at }}</td>
+                                @if ($order->status == config('number-items.reject'))
+                                    <td>{{ trans('templates.reject') }}</td>
+                                @elseif ($order->status == config('number-items.accept'))
+                                    <td>{{ trans('templates.reject') }}</td>
+                                @else
+                                    <td>{{ trans('templates.deliveried') }}</td>
+                                @endif
+                                    <td>
                                     <a href="{{ route('orders.show', $order->id) }}" class="btn btn-warning">
                                         <i class="fa fa-info-circle">{{ trans('templates.detail') }}</i>
                                     </a>
