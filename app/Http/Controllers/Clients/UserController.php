@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterClientRequest;
 use App\Http\Requests\RegisterNewsRequest;
 use App\Http\Requests\UpdateProfileRequest;
-use App\Models\Product;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
@@ -99,5 +99,30 @@ class UserController extends Controller
         User::create(['email' => $request->email]);
 
         return redirect()->back()->with('success', trans('messages.register_success'));
+    }
+
+    public function historyBill()
+    {
+        if (Auth::check()) {
+            $orders = Order::where('user_id', Auth::id())->orderBy('created_at', 'desc')->get();
+            foreach ($orders as $order) {
+                $orderItems[] = $order->orderItems;
+            }
+
+            return view('client.user.history-bill', compact(['orderItems', 'orders']));
+        }
+    }
+
+    public function deleteBill(Request $request)
+    {
+        try {
+            $order = Order::findOrFail($request->delete_id);
+        } catch (ModelNotFoundException $exception) {
+
+            return back()->withErrors($exception->getMessage())->withInput();
+        }
+        $order->delete();
+
+        return redirect()->route('client.history_bill')->with('success', trans('messages.delete_success'));
     }
 }
