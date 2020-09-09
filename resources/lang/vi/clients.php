@@ -97,4 +97,13 @@ return [
     'other' => 'Khác',
     'logout' => 'Đăng xuất',
     'profile' => 'Hồ sơ',
+    'out_stock' => 'Hết hàng',
+    'rate' => 'Đánh giá',
+    'submit' => 'Gửi',
+    'comment' => 'Nhận xét',
+    'can_buy' => 'Chỉ được mua tối đa',
+    'item' => 'sản phẩm',
+    'history_bill' => 'Lịch sử đơn hàng',
+    'order_date' => 'Ngày đặt hàng',
+    'status' => 'Trạng thái đơn hàng',
 ];

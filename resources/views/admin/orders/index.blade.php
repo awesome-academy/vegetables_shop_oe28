@@ -35,10 +35,10 @@
                                 <td>{{ $order->phone }}</td>
                                 <td>{{ $order->address }}</td>
                                 <td>{{ $order->updated_at }}</td>
-                                @if ($order->status == config('number-items.reject'))
+                                @if ((int) $order->status == config('number-items.one'))
                                     <td>{{ trans('templates.reject') }}</td>
-                                @elseif ($order->status == config('number-items.accept'))
-                                    <td>{{ trans('templates.reject') }}</td>
+                                @elseif ((int) $order->status == config('number-items.two'))
+                                    <td>{{ trans('templates.pending') }}</td>
                                 @else
                                     <td>{{ trans('templates.deliveried') }}</td>
                                 @endif

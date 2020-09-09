@@ -97,4 +97,13 @@ return [
     'other' => 'others',
     'logout' => 'Logout',
     'profile' => 'Profile',
+    'out_stock' => 'Out of stock',
+    'rate' => 'Rate',
+    'submit' => 'Send',
+    'comment' => 'Comment',
+    'can_buy' => 'Can only buy',
+    'item' => 'item',
+    'history_bill' => 'History bill',
+    'order_date' => 'Date order',
+    'status' => 'Invoice Status',
 ];

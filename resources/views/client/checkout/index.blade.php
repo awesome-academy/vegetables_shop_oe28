@@ -73,7 +73,7 @@
                                             <p class="d-flex">
                                                 <span>
                                                     {{ $product['productInfo']->name }}
-                                                    {{ '(' . $product['productInfo']->weight_item . ' ' . $product['productInfo']->unit . ')' }}
+                                                    {{ '(' . $product['productInfo']->weight_item . ' ' . config('path-img.unit') . ')' }}
                                                 </span>
                                                 <span>{{ $product['quantity'] }}</span>
                                                 <span>

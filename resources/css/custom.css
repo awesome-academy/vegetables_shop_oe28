@@ -51,7 +51,7 @@
     height: 300px;
 }
 ul.pagination {
-    width: 0;
+    width: auto;
     margin: auto;
 }
 .img-recent {
@@ -265,12 +265,6 @@ ul.item-cart {
     padding: 5px 0px;
     font-weight: bold;
 }
-span {
-    font-size: 13px;
-    text-align: end;
-    padding: 5px 0px;
-    color: grey;
-}
 #checkout {
     width: 100%;
     margin-bottom: 10px;
@@ -386,6 +380,7 @@ span.subheading {
 }
 img.product__details__pic__item--large {
     max-width: 100%;
+    width: 100%;
 }
 .product__details__pic__item {
     margin-bottom: 20px;
@@ -513,4 +508,94 @@ input#quantity {
 .gg-map {
     width: 600px;
     height: 450px;
+}
+.sidebar .nav-item .nav-link span {
+    color: #fff;
+}
+.cart-total p span {
+    color: #0e0d0d;
+}
+.out-stock {
+    color: #ff0000;
+    font-size: 13px;
+}
+span.text, span.icon, .content-page {
+    color: #000000;
+}
+li.nav-item.heart {
+    color: #060606;
+    position: relative;
+}
+.text-center {
+    text-align:center;
+}
+.star {
+    list-style: none;
+    float: left;
+}
+#comment {
+    width: 100%;
+}
+label.review-product {
+    font-weight: 700;
+    font-size: 20px;
+}
+.checked {
+    color: orange;
+}
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position: absolute;
+    top: -9999px;
+}
+.rate:not(:checked) > label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #989292;
+}
+.rate:not(:checked) > label:before {
+    content: '★7 ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+.send-review {
+    color: #fff !important;
+    background-color: #28a745 !important;
+}
+.weight_available {
+    color: #0c0c0c;
+}
+.available {
+    color: #1F8DC4;
+    font-size: 13px;
+}
+.name-product-bill {
+    display: block;
+}
+i.fa.fa-trash {
+    color: #ffffff;
+    cursor: pointer;
+}
+.delete-bill {
+    width: 50%;
 }
