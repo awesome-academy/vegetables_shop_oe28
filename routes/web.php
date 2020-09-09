@@ -65,4 +65,6 @@ Route::group(['namespace' => 'Clients'], function () {
     Route::post('checkout', 'HomeController@postCheckout')->name('client.post_checkout');
     Route::post('register-news', 'UserController@registerNews')->name('client.register_new');
     Route::post('rate', 'ProductController@rate')->name('client.rate');
+    Route::get('history-bill', 'UserController@historyBill')->name('client.history_bill');
+    Route::post('delete-bill', 'UserController@deleteBill')->name('client.delete_bill');
 });

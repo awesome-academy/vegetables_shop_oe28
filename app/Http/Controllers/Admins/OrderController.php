@@ -32,11 +32,11 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
         $orderItems = $order->orderItems;
         foreach ($orderItems as $orderItem) {
-            $productId [] = $orderItem['product_id'];
+            $productId[] = $orderItem['product_id'];
             $totalPrices[] = $orderItem['total_price'];
         }
         if (isset($productId)) {
-            $products = Product::whereIn('id', $productId)->get();
+            $products = Product::whereIn('id', $productId)->withTrashed()->get();
         }
         return view('admin.orders.show', compact(['order', 'products', 'totalPrices']));
     }
@@ -63,8 +63,9 @@ class OrderController extends Controller
         }
         Order::where('id', $id)->update(['status' => $request->status]);
         $orderItems = $order->orderItems;
-        $productId [] = $orderItem['product_id'];
-
+        foreach ($orderItems as $orderItem) {
+            $productId[] = $orderItem['product_id'];
+        }
         if (isset($productId)) {
             $products = Product::whereIn('id', $productId)->get();
         }
