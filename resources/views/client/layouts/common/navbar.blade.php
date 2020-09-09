@@ -124,6 +124,9 @@
                             <li>
                                 <a href="{{ route('client.get_logout') }}">{{ trans('clients.logout') }}</a>
                             </li>
+                            <li>
+                                <a href="{{ route('client.history_bill') }}">{{ trans('clients.history_bill') }}</a>
+                            </li>
                         </ul>
                     @else
                         <ul class="reg-log">
@@ -139,7 +142,7 @@
                 <li class="nav-item">
                     @php $locale = session()->get('locale') @endphp
                     <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false" v-pre>
+                       aria-haspopup="true" aria-expanded="false">
                         @switch ($locale)
                             @case ('en')
                             <img src="{{ asset(config('path-img.en')) }}" class="img-lang">
