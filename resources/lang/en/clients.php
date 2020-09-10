@@ -106,4 +106,5 @@ return [
     'history_bill' => 'History bill',
     'order_date' => 'Date order',
     'status' => 'Invoice Status',
+    'only_bought' => 'Comment only for customer who bought item',
 ];

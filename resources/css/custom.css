@@ -436,7 +436,7 @@ img.product__details__pic__item--large {
     font-size: 14px;
     margin-bottom: 12px;
 }
-.product__details__text .product__details__rating i {
+.product__details__rating i {
     margin-right: -2px;
     color: #EDBB0E;
 }

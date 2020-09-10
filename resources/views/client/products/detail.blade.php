@@ -64,11 +64,35 @@
                 </div>
             </div>
             <label class="review-product">{{ trans('clients.review') }}</label>
-            <div class="form-group">
-                <form action="{{ route('client.rate') }}" class="form-group" method="POST">
-                    @csrf
-                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-                    <label for="comment">{{ trans('clients.rate') }}</label>
+            @foreach ($rates as $rate)
+                <div id="comment-container">
+                    <div class="col-md-10 col-sm-10">
+                        <div class="panel panel-default arrow left">
+                            <div class="panel-body">
+                                <header class="text-left">
+                                    <div class="comment-user"><i class="fa fa-user"></i>{{ $rate->user['name'] }}</div>
+                                    <time class="comment-date">
+                                        <i class="fa fa-clock">{{ ' ' . date('d-m-Y', strtotime($rate->created_at)) }}</i>
+                                    </time>
+                                </header>
+                                <div class='rating-stars text-center row'>
+                                    <div class="rate product__details__rating">
+                                        @for ($i = 0; $i < $rate->rating; $i++)
+                                            <i class="fa fa-star"></i>
+                                        @endfor
+                                    </div>
+                                </div>
+                                <div class="comment-post">
+                                    <p>{{ $rate->content }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+            @if (Auth::check())
+                <div class="form-group" id="comment-block">
+                    <input type="hidden" name="product_id" id="product_id" value="{{ $product->id }}">
                     <div class='rating-stars text-center row'>
                         <div class="rate">
                             <input type="radio" id="star5" name="rating" value="{{ config('number-items.five') }}"/>
@@ -87,9 +111,38 @@
                         <label for="comment">{{ trans('clients.comment') }}</label>
                         <textarea rows="{{ config('number-items.five') }}" name="content" id="comment"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-success send-review">{{ trans('clients.submit') }}</button>
-                </form>
-            </div>
+                    <button type="submit" class="btn btn-success send-review" id="send-review">
+                        {{ trans('clients.submit') }}
+                    </button>
+                </div>
+            @else
+                <div class="form-group" id="comment-block">
+                    <form action="{{ route('client.rate') }}" class="form-group" method="POST">
+                        @csrf
+                        <input type="hidden" name="product_id" id="product_id" value="{{ $product->id }}">
+                        <input type="hidden" id="number-rate" value="{{ $rateByUser }}">
+                        <div class='rating-stars text-center row'>
+                            <div class="rate">
+                                <input type="radio" id="star5" name="rating" value="{{ config('number-items.five') }}"/>
+                                <label for="star5">{{ trans('clients.5_stars') }}</label>
+                                <input type="radio" id="star4" name="rating" value="{{ config('number-items.four') }}"/>
+                                <label for="star4">{{ trans('clients.4_stars') }}</label>
+                                <input type="radio" id="star3" name="rating" value="{{ config('number-items.three') }}"/>
+                                <label for="star3">{{ trans('clients.3_stars') }}</label>
+                                <input type="radio" id="star2" name="rating" value="{{ config('number-items.two') }}"/>
+                                <label for="star2">{{ trans('clients.2_stars') }}</label>
+                                <input type="radio" id="star1" name="rating" value="{{ config('number-items.one') }}"/>
+                                <label for="star1">{{ trans('clients.1_stars') }}</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">{{ trans('clients.comment') }}</label>
+                            <textarea rows="{{ config('number-items.five') }}" name="content" id="comment"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success" id="prevent-review">{{ trans('clients.submit') }}</button>
+                    </form>
+                </div>
+            @endif
         </div>
     </section>
     <section class="ftco-section">

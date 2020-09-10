@@ -106,4 +106,5 @@ return [
     'history_bill' => 'Lịch sử đơn hàng',
     'order_date' => 'Ngày đặt hàng',
     'status' => 'Trạng thái đơn hàng',
+    'only_bought' => 'Bình luận chỉ dành cho khách đã mua sản phẩm này!',
 ];
