@@ -28,23 +28,22 @@ class ProductController extends Controller
 
             return back()->withErrors($exception->getMessage())->withInput();
         }
-        $productRelates = Product::where('category_id', $product->category_id)->where('id', '<>', $id)
-            ->orderBy('updated_at', 'desc')->paginate(config('number-items.number_related'));
-        $rates = $product->rates();
+        $productRelates = Product::where('category_id', $product->category_id)
+            ->where('id', '<>', $id)
+            ->orderBy('updated_at', 'desc')
+            ->paginate(config('number-items.number_related'));
+        $rates = $product->rates->sortByDesc('created_at');
         $countRate = $rates->count();
         $rating = ceil($rates->avg('rating'));
+        $rateByUser = Rate::where('user_id', Auth::id())->count();
 
-        return view('client.products.detail', compact(['product', 'productRelates', 'countRate', 'rating']));
-    }
-
-    public function rate(Request $request)
-    {
-        if (Auth::check()) {
-            $data = $request->all();
-            $data['user_id'] = Auth::id;
-            Rate::create($data);
-        }
-
-        return redirect()->back()->with('success', trans('messages.review_success'));
+        return view('client.products.detail', compact([
+            'product',
+            'productRelates',
+            'countRate',
+            'rating',
+            'rates',
+            'rateByUser',
+        ]));
     }
 }

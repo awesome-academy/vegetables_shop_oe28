@@ -20,4 +20,9 @@ class User extends Authenticatable
     {
         return $this->role_id === config('role.admin');
     }
+
+    public function rates()
+    {
+        return $this->hasMany(Rate::class);
+    }
 }
