@@ -28,7 +28,7 @@
                                             <td>
                                                 @foreach ($orderItem as $item)
                                                     @php $product = $item->product @endphp
-                                                    <li class="name-product-bill">{{ $product->name }}</li>
+                                                    <li class="name-product-bill">{{ @$product->name }}</li>
                                                 @endforeach
                                             </td>
                                             <td>

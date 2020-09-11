@@ -39,7 +39,7 @@
                         <form action="#" class="search-form">
                             <div class="form-group">
                                 <span class="icon ion-ios-search"></span>
-                                <input type="text" class="form-control" placeholder="{{ trans('client.search') }}">
+                                <input type="text" class="form-control" placeholder="{{ trans('clients.search') }}">
                             </div>
                         </form>
                     </div>

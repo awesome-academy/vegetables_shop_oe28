@@ -130,13 +130,6 @@
                                     </p>
                                 @endif
                             </h3>
-                            <h3>
-                                @if(isset($product->supplier->name))
-                                    <a href="#">{{ trans('clients.supplier') . ": " . @$product->supplier->name }}</a>
-                                @else
-                                    <a href="#">{{ trans('clients.supplier') . ": " . trans('clients.other') }}</a>
-                                @endif
-                            </h3>
                             <div class="d-flex">
                                 <div class="pricing">
                                     <p class="price">

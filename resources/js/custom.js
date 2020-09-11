@@ -113,11 +113,11 @@ $(document).ready(function () {
     // update number item cart
     $('.page-cart-single').on('click','.update-number-item',function () {
         var id = 'quantity-item-' + $(this).data('id');
-        var qty = $('#' + id).val();
-        var maxItem = $('#limitItem-' + $(this).data('id')).val();
+        var qty = parseInt($('#' + id).val());
+        var maxItem = parseInt($('#limitItem-' + $(this).data('id')).val());
         if (qty <= 0) {
             alertify.error('Number of items min is 1');
-        } else if(qty <= maxItem) {
+        } else if (qty <= maxItem) {
             $.ajax({
                 url: 'save-item-cart/' + $(this).data('id') + '/' + qty,
                 type: 'GET',
