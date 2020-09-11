@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Clients;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\ViewShareController;
 use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
-class CartController extends Controller
+class CartController extends ViewShareController
 {
     public function addToCart(Request $request, $id) {
         try {

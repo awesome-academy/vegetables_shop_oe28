@@ -36,6 +36,7 @@ jQuery(document).ready(function($) {
         );
     });
 });
+<<<<<<< HEAD
 // comment
 $(document).ready(function () {
     $('.send-review').click(function (e) {
@@ -48,54 +49,51 @@ $(document).ready(function () {
         var numberRate = $('#number-rate').val();
         var rating = $('input[name="rating"]:checked').val();
         var content = $('#comment').val();
-        if (numberRate < 1) {
-            $.ajax({
-                type: 'POST',
-                url: '/rate',
-                data: {
-                    product_id: productId,
-                    rating: rating,
-                    content: content,
-                },
-                success: function (data) {
-                    var star = '';
-                    for (var i = 0; i < data.rating; i++) {
-                        star += '<i class="fa fa-star"></i>';
-                    }
-                    var content = $(
-                        `<div class="col-md-10 col-sm-10">
-                            <div class="panel panel-default arrow left">
-                                <div class="panel-body">
-                                    <header class="text-left">
-                                        <div class="comment-user"><i class="fa fa-user"></i>${data.name}</div>
-                                        <time class="comment-date">
-                                            <i class="fa fa-clock">${data.date}</i>
-                                        </time>
-                                    </header>
-                                    <div class='rating-stars text-center row'>
-                                        <div class="rate product__details__rating">
-                                            ${star}
-                                        </div>
-                                    </div>
-                                    <div class="comment-post">
-                                        <p>${data.content}</p>
+        $.ajax({
+            type: 'POST',
+            url: '/rate',
+            data: {
+                product_id: productId,
+                rating: rating,
+                content: content,
+            },
+            success: function (data) {
+                var star = '';
+                for (var i = 0; i < data.rating; i++) {
+                    star += '<i class="fa fa-star"></i>';
+                }
+                var content = $(
+                    `<div class="col-md-10 col-sm-10">
+                        <div class="panel panel-default arrow left">
+                            <div class="panel-body">
+                                <header class="text-left">
+                                    <div class="comment-user"><i class="fa fa-user"></i>${data.name}</div>
+                                    <time class="comment-date">
+                                        <i class="fa fa-clock">${data.date}</i>
+                                    </time>
+                                </header>
+                                <div class='rating-stars text-center row'>
+                                    <div class="rate product__details__rating">
+                                        ${star}
                                     </div>
                                 </div>
+                                <div class="comment-post">
+                                    <p>${data.content}</p>
+                                </div>
                             </div>
-                        </div>`
-                    );
-                    $('#comment-container').append(content);
-                    $('#comment').val('');
-                    alertify.success('Rate success');
-                }
-            });
-        }
-        else {
-            alertify.error('Each customer can only comment once');
-        }
+                        </div>
+                    </div>`
+                );
+                $('#comment-container').append(content);
+                $('#comment').val('');
+                alertify.success('Rate success');
+            }
+        });
     });
     $('#prevent-review').click(function (e) {
         alert('Please login to comment!');
         e.preventDefault();
     })
 });
+=======
+>>>>>>> d300a83... History bill

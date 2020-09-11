@@ -24,7 +24,6 @@
                                 <th>{{ trans('templates.order_date') }}</th>
                                 <th>{{ trans('templates.status') }}</th>
                                 <th>{{ trans('templates.detail') }}</th>
-                                <th>{{ trans('templates.delete') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,25 +35,22 @@
                                 <td>{{ $order->address }}</td>
                                 <td>{{ $order->updated_at }}</td>
                                 @if ((int) $order->status == config('number-items.one'))
+<<<<<<< HEAD
+                                    <td class="btn btn-danger">{{ trans('templates.reject') }}</td>
+                                @elseif ((int) $order->status == config('number-items.two'))
+                                    <td class="btn btn-warning">{{ trans('templates.pending') }}</td>
+=======
                                     <td>{{ trans('templates.reject') }}</td>
                                 @elseif ((int) $order->status == config('number-items.two'))
                                     <td>{{ trans('templates.pending') }}</td>
+>>>>>>> d300a83... History bill
                                 @else
-                                    <td>{{ trans('templates.deliveried') }}</td>
+                                    <td class="btn btn-success">{{ trans('templates.deliveried') }}</td>
                                 @endif
                                     <td>
                                     <a href="{{ route('orders.show', $order->id) }}" class="btn btn-warning">
-                                        <i class="fa fa-info-circle">{{ trans('templates.detail') }}</i>
+                                        <i class="fa fa-info-circle"></i>
                                     </a>
-                                </td>
-                                <td>
-                                    <form class="delete-sup" action="{{ route('orders.destroy', $order->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger" type="submit" value="{{ $order->id }}">
-                                            <i class="fa fa-trash">{{ trans('messages.delete') }}</i>
-                                        </button>
-                                    </form>
                                 </td>
                             </tr>
                         @endforeach

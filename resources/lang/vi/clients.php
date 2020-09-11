@@ -106,5 +106,8 @@ return [
     'history_bill' => 'Lịch sử đơn hàng',
     'order_date' => 'Ngày đặt hàng',
     'status' => 'Trạng thái đơn hàng',
+<<<<<<< HEAD
     'only_bought' => 'Bình luận chỉ dành cho khách đã mua sản phẩm này!',
+=======
+>>>>>>> d300a83... History bill
 ];

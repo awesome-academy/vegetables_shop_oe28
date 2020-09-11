@@ -2,19 +2,16 @@
 
 namespace App\Http\Controllers\Clients;
 
-use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Http\Controllers\ViewShareController;
 use App\Models\Product;
 use App\Models\Rate;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ProductController extends Controller
+class ProductController extends ViewShareController
 {
     public function index()
     {
-        $categories = Category::all();
         $products = Product::simplePaginate(config('number_items.number-product'));
 
         return view('client.products.index', compact(['categories', 'products']));

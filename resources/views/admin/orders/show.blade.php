@@ -50,15 +50,21 @@
                                                     <div class="row">
                                                         <div class="col">
                                                             <select class="form-control btn btn-warning" name="status">
-                                                                <option value="{{ config('number-items.one') }}" {{ $order->status == config('number-items.reject') ? 'selected' : "" }}>
-                                                                    {{ trans('templates.reject') }}
-                                                                </option>
-                                                                <option value="{{ config('number-items.two') }}" {{ $order->status == config('number-items.accept') ? 'selected' : "" }}>
-                                                                    {{ trans('templates.accept') }}
-                                                                </option>
-                                                                <option value="{{ config('number-items.three') }}" {{ $order->status == config('number-items.deliveried') ? 'selected' : "" }}>
-                                                                    {{ trans('templates.deliveried') }}
-                                                                </option>
+                                                                @if ($order->status == config('number-items.deliveried'))
+                                                                    <option value="{{ config('number-items.three') }}" selected>
+                                                                        {{ trans('templates.deliveried') }}
+                                                                    </option>
+                                                                @else
+                                                                    <option value="{{ config('number-items.one') }}" {{ $order->status == config('number-items.reject') ? 'selected' : "" }}>
+                                                                        {{ trans('templates.reject') }}
+                                                                    </option>
+                                                                    <option value="{{ config('number-items.two') }}" {{ $order->status == config('number-items.pending') ? 'selected' : "" }}>
+                                                                        {{ trans('templates.pending') }}
+                                                                    </option>
+                                                                    <option value="{{ config('number-items.three') }}" {{ $order->status == config('number-items.deliveried') ? 'selected' : "" }}>
+                                                                        {{ trans('templates.deliveried') }}
+                                                                    </option>
+                                                                @endif
                                                             </select>
                                                         </div>
                                                         <div class="col">

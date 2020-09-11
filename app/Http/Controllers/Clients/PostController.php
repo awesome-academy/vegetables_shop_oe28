@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\Clients;
 
-use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Http\Controllers\ViewShareController;
 use App\Models\Post;
-use Illuminate\Http\Request;
 
-class PostController extends Controller
+class PostController extends ViewShareController
 {
     public function index()
     {

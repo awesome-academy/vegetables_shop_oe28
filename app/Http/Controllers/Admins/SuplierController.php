@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSuplierRequest;
 use App\Http\Requests\UpdateSuplierRequest;
 use App\Models\Supplier;
-use Illuminate\Http\Request;
 
 class SuplierController extends Controller
 {

@@ -28,7 +28,11 @@
                                             <td>
                                                 @foreach ($orderItem as $item)
                                                     @php $product = $item->product @endphp
+<<<<<<< HEAD
+                                                    <li class="name-product-bill">{{ @$product->name }}</li>
+=======
                                                     <li class="name-product-bill">{{ $product->name }}</li>
+>>>>>>> d300a83... History bill
                                                 @endforeach
                                             </td>
                                             <td>

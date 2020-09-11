@@ -61,7 +61,7 @@ return [
     'total_qty' => 'Total Quantity',
     'total_number' => 'Total number',
     'total_price' => 'Total price',
-    'null_cart' => 'Cart null',
+    'null_cart' => 'Cart empty',
     'continue_shop' => 'Continue shopping',
     'update' => 'Update',
     'product_name' => 'Product name',
@@ -106,5 +106,8 @@ return [
     'history_bill' => 'History bill',
     'order_date' => 'Date order',
     'status' => 'Invoice Status',
+<<<<<<< HEAD
     'only_bought' => 'Comment only for customer who bought item',
+=======
+>>>>>>> d300a83... History bill
 ];
