@@ -41,6 +41,19 @@
                                         <div class="text py-3 pb-4 px-3 text-center">
                                             <h3><a href="#">{{ $product->name }}</a></h3>
                                             <h3>
+                                                @if ($product->weight_available <= config('number-items.zero'))
+                                                    <p class="out-stock">
+                                                        {{ '(' . trans('clients.out_stock') . ')' }}
+                                                    </p>
+                                                @else
+                                                    <p class="available">
+                                                        {{ trans('clients.available') . ': ' . $product->weight_available . ' ' .config('path-img.unit')}}
+                                                        <input type="hidden" id="limitItem-{{ $product->id }}" data-id="{{ $product->id }}"
+                                                               value="{{ floor($product->weight_available / (float) str_replace(',', '.', $product->weight_item)) }}">
+                                                    </p>
+                                                @endif
+                                            </h3>
+                                            <h3>
                                                 @if (isset($product->supplier->name))
                                                     <a href="#">{{ trans('clients.supplier') . ": " . @$product->supplier->name }}</a>
                                                 @else
@@ -66,12 +79,23 @@
                                             </div>
                                             <div class="bottom-area d-flex px-3">
                                                 <div class="m-auto d-flex">
-                                                    <a href="javascript:" id="{{ $product->id }}"
-                                                       class="buy-now d-flex justify-content-center align-items-center mx-1 add-to-cart">
-                                                        <i class="ion-ios-cart"></i>
-                                                    </a>
+                                                    @if ($product->weight_available <= config('number-items.zero'))
+                                                        <a href="javascript:" id="{{ $product->id }}"
+                                                           class="buy-now d-flex justify-content-center align-items-center mx-1 disabled">
+                                                            <i class="ion-ios-cart"></i>
+                                                        </a>
+                                                    @else
+                                                        <a href="javascript:" id="{{ $product->id }}"
+                                                           class="buy-now d-flex justify-content-center align-items-center mx-1 add-to-cart">
+                                                            <i class="ion-ios-cart"></i>
+                                                        </a>
+                                                    @endif
                                                     <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                                                        <span><i class="ion-ios-heart"></i></span>
+                                                        <div class="click">
+                                                            <span class="fa fa-heart"></span>
+                                                            <div class="ring"></div>
+                                                            <div class="ring2"></div>
+                                                        </div>
                                                     </a>
                                                 </div>
                                             </div>

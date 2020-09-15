@@ -7,7 +7,6 @@ use App\Models\Order;
 use App\Models\Rate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use function GuzzleHttp\Promise\all;
 
 class RateController extends Controller
 {

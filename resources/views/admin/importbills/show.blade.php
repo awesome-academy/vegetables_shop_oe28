@@ -29,7 +29,7 @@
                                 <tr role="row">
                                     <th class="col-md-auto">{{ trans('templates.product') }}</th>
                                     <th class="col-md-auto">
-                                        {{ trans('templates.weight') }}
+                                        {{ trans('templates.weight') . '(' . config('path-img.unit') . ')'}}
                                     </th>
                                     <th class="col-md-auto">{{ trans('templates.import_price') }}</th>
                                     <th class="col-md-auto">{{ trans('templates.outdate') }}</th>
@@ -40,7 +40,7 @@
                                         @php $product = $importBillProduct->product; @endphp
                                         <th class="col-md-auto">{{ $product['name'] }}</th>
                                         <th class="col-md-auto">
-                                            {{ $importBillProduct->weight . ' ' . $importBillProduct->unit }}
+                                            {{ $importBillProduct->weight }}
                                         </th>
                                         <th class="col-md-auto">
                                             {{ number_format($importBillProduct->import_price) . config('number-items.unit') }}

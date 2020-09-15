@@ -2,20 +2,18 @@
 
 namespace App\Http\Controllers\Clients;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\ViewShareController;
 use App\Http\Requests\OrderRequest;
-use App\Models\Category;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
-class HomeController extends Controller
+class HomeController extends ViewShareController
 {
     public function index()
     {
-        $categories = Category::all();
         $products = Product::take(config('number-items.number_product'))->get();
 
         return view('client.homepage.index', compact(['categories', 'products']));

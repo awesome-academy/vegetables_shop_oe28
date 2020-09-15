@@ -61,7 +61,7 @@ return [
     'total_qty' => 'Total Quantity',
     'total_number' => 'Total number',
     'total_price' => 'Total price',
-    'null_cart' => 'Cart null',
+    'null_cart' => 'Cart empty',
     'continue_shop' => 'Continue shopping',
     'update' => 'Update',
     'product_name' => 'Product name',

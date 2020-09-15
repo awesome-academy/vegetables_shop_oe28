@@ -31,38 +31,63 @@
         </div>
     @endif
     <div class="container">
-        <a class="navbar-brand" href="{{ route('client.homepage') }}">{{ trans('clients.name_website') }}</a>
+        <div class="logo header-element">
+            <a class="navbar-brand" href="{{ route('client.homepage') }}">{{ trans('clients.name_website') }}</a>
+        </div>
+        <div class="seaarch header-element">
+            <div class="search-wrap">
+                <div class="main-search-active">
+                    <div class="sidebar-search-input">
+                        <form id="form-search-header" action="/search" method="get" class="search-bar site-header__search" role="search">
+                            <div class="form-search">
+                                <input type="search" name="q" value="" placeholder="{{ trans('clients.search') }}"
+                                    id="search" aria-label="Search our store" class="input-text">
+                                <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
             aria-controls="ftco-nav" aria-expanded="false">
             <span class="oi oi-menu"></span> {{ trans('clients.menu') }}
         </button>
+    </div>
+</nav>
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light nav-cat" id="ftco-navbar">
+    <div class="container">
         <div class="collapse navbar-collapse" id="ftco-nav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="{{ route('client.homepage') }}" class="nav-link active">{{ trans('clients.home') }}</a></li>
+            <ul class="navbar-nav ml-auto category-homepage">
+                <li class="nav-item"><a href="{{ route('client.homepage') }}" class="nav-link nav-menu active">{{ trans('clients.home') }}</a></li>
                 <li class="nav-item">
-                    <a href="{{ route('client.all_product') }}" class="nav-link">
+                    <a href="{{ route('client.all_product') }}" class="nav-link nav-menu">
                         {{ trans('clients.product') }}
                     </a>
                 </li>
-                <li class="nav-item"><a href="{{ route('client.post_index') }}" class="nav-link">{{ trans('clients.news') }}</a></li>
-                <li class="nav-item"><a href="{{ route('client.introduce') }}" class="nav-link">{{ trans('clients.introduce') }}</a></li>
-                <li class="nav-item"><a href="{{ route('client.delivery') }}" class="nav-link">{{ trans('clients.delivery_regulations') }}</a></li>
                 <li class="nav-item">
-                    <a href="{{ route('client.delivery') }}" class="nav-link">
-                        <span class="fa fa-heart"></span>
-                        <sup>1</sup>
-                    </a>
+                    <a href="{{ route('client.post_index') }}" class="nav-link nav-menu">{{ trans('clients.news') }}</a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('client.introduce') }}" class="nav-link nav-menu">{{ trans('clients.introduce') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('client.delivery') }}" class="nav-link nav-menu">{{ trans('clients.delivery_regulations') }}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item nav-cart">
                     @if (!empty(Session::has('Cart')))
-                        <a href="#" class="nav-link">
+                        <a href="#" class="nav-link nav-menu">
                             <i class='fa fa-shopping-cart'>
                                 <sup id="total-qty-show">{{ Session::get('Cart')->totalQty }}</sup>
                             </i>
                         </a>
                     @else
                         <a href="#" class="nav-link">
-                             <i class='fa fa-shopping-cart'><sup id="total-qty-show">{{ config('number-items.zero') }}</sup></i>
+                            <i class='fa fa-shopping-cart'><sup id="total-qty-show">{{ config('number-items.zero') }}</sup></i>
                         </a>
                     @endif
                     <ul class="item-cart">
@@ -72,27 +97,27 @@
                                 @if (!empty(Session::has('Cart')))
                                     @php $cart = Session::get('Cart') @endphp
                                     @foreach ($cart->products as $product)
-                                            <div class="cart-product">
-                                                <div class="cart-img-product">
-                                                    @php $img = $product['productInfo']->images->first(); @endphp
-                                                    <img src="{{ asset(config('path-img.img') . $img['image_path']) }}">
-                                                </div>
-                                                <div class="cart-info-product">
-                                                    <h4>{{ $product['productInfo']->name }}</h4>
-                                                    <div class="cart-product-purchase">
-                                                        @if (isset($product['productInfo']->price_discount))
-                                                            <p class="price">{{ number_format($product['productInfo']->price_discount) }}
-                                                                {{ config('number-items.unit') }} x {{ $product['quantity'] }}</p>
-                                                        @else
-                                                            <p class="price">{{ number_format($product['productInfo']->price) }}
-                                                                {{ config('number-items.unit') }} x {{ $product['quantity'] }}</p>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                                <input type="button" class="remove-item"
-                                                    data-id="{{ $product['productInfo']->id }}" value="X"/>
+                                        <div class="cart-product">
+                                            <div class="cart-img-product">
+                                                @php $img = $product['productInfo']->images->first(); @endphp
+                                                <img src="{{ asset(config('path-img.img') . $img['image_path']) }}">
                                             </div>
-                                        @endforeach
+                                            <div class="cart-info-product">
+                                                <h4>{{ $product['productInfo']->name }}</h4>
+                                                <div class="cart-product-purchase">
+                                                    @if (isset($product['productInfo']->price_discount))
+                                                        <p class="price">{{ number_format($product['productInfo']->price_discount) }}
+                                                            {{ config('number-items.unit') }} x {{ $product['quantity'] }}</p>
+                                                    @else
+                                                        <p class="price">{{ number_format($product['productInfo']->price) }}
+                                                            {{ config('number-items.unit') }} x {{ $product['quantity'] }}</p>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <input type="button" class="remove-item"
+                                                   data-id="{{ $product['productInfo']->id }}" value="X"/>
+                                        </div>
+                                    @endforeach
                                     <div class="total-info">
                                         <div class="cart-info">
                                             <div class="inside-cart">
