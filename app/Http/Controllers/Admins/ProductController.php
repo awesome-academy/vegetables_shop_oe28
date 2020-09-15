@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers\Admins;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\ViewShareController;
 use App\Http\Requests\StoreProductRequest;
-use App\Models\Category;
 use App\Models\Image;
 use App\Models\Product;
 use App\Models\Supplier;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
-class ProductController extends Controller
+class ProductController extends ViewShareController
 {
     public function index()
     {
@@ -21,7 +20,6 @@ class ProductController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
         $suppliers = Supplier::all();
 
         return view('admin.products.create', compact(['categories', 'suppliers']));
@@ -56,7 +54,6 @@ class ProductController extends Controller
         } catch (ModelNotFoundException $exception) {
             return back()->withErrors($exception->getMessage())->withInput();
         }
-        $categories = Category::all();
         $suppliers = Supplier::all();
 
         return view('admin.products.edit', compact(['product', 'categories', 'suppliers']));

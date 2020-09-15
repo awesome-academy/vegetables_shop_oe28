@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Admins;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\ViewShareController;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
-class OrderController extends Controller
+class OrderController extends ViewShareController
 {
     public function index()
     {
@@ -46,13 +46,6 @@ class OrderController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         try {
@@ -84,12 +77,6 @@ class OrderController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

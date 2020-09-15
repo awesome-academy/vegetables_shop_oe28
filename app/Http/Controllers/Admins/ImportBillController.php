@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admins;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\ViewShareController;
 use App\Http\Requests\StoreImportBillRequest;
 use App\Models\ImportBill;
 use App\Models\Product;
@@ -11,7 +11,7 @@ use App\Models\Supplier;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
-class ImportBillController extends Controller
+class ImportBillController extends ViewShareController
 {
     public function index()
     {
